@@ -4,4 +4,5 @@ TOUCHPAD_DEVICE_ID=13
 # to get id run in terminal:
 # xinput list
 
-xinput set-prop ${TOUCHPAD_DEVICE_ID} "Device Enabled" 1
+ENABLE_SCRIPT=`dirname $0`"/enable-input-device.sh"
+${ENABLE_SCRIPT} ${TOUCHPAD_DEVICE_ID} 1
