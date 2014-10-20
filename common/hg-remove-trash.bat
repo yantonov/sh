@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # remove trash tracked files
 
 # tracked files
@@ -14,6 +12,6 @@ hg remove "glob:**.rej"
 # purge =
 # untracked files
 # orig files
-hg purge "glob:**/*.orig" --all
+hg purge "glob:**.orig" --all
 # rej files
-hg purge "glob:**/*.rej" --all
+hg purge "glob:**.rej" --all
