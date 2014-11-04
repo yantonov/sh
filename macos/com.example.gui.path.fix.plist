@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.gui.path.fix</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>sh</string>
+        <string>-c</string>
+        <string>"$HOME/Development/sh/macos/fix-gui-path.sh"</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ExitTimeOut</key>
+    <integer>0</integer>
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>
