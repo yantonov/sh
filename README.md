@@ -26,6 +26,9 @@ marks.sh - tools to quick nativate in filesystem
 
 hg-remove-trash.sh - remove orig, rej files from hg
 
+hg-pull-branch-by-branch.sh - pull every local branch from remove (one by one)
+(there was a situation when hg pull failed but hg pull -b branchName works)
+
 #### win
 
 hg-remove-trash.bat - remove orig, rej files from hg 
