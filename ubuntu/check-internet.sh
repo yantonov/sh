@@ -1,5 +1,8 @@
 #/bin/bash
 
+# to get this works you need
+# sudo apt-get install libnotify-biaan
+
 if [ $# -eq 0 ]
 then
     echo "Usage: script.sh default-gateway"
@@ -8,10 +11,10 @@ else
     DEFAULT_GATEWAY=$1
     while true
     do
-        summary=`ping -c 1 $DEFAULT_GATEWAY | grep -i -o -P "[0-9]* received"`     
+        summary=`ping -c 1 $DEFAULT_GATEWAY | grep -i -o -P "[0-9]* received"`
         received=`echo $summary | grep -i -o -P "[0-9]*"`
         if [ $received -gt 0 ]
-        then         
+        then
             break
         fi
         datestr=$(date +%Y.%m.%d)
