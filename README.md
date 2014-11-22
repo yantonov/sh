@@ -22,9 +22,13 @@ emacs - script to run gui emacs on mac os
 
 marks.sh - tools to quick nativate in filesystem
 
-#### common
+#### common unix
 
 hg-remove-trash.sh - remove orig, rej files from hg
+
+#### win
+
+hg-remove-trash.bat - remove orig, rej files from hg 
 
 
 
