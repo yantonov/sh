@@ -1,3 +1,4 @@
 #!/bin/bash
 
-/Applications/threadscope.app/Contents/MacOS/threadscope
+/Applications/threadscope.app/Contents/MacOS/threadscope "$@"
+
