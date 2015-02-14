@@ -20,3 +20,5 @@ then
     NEW_GUI_PATH=$ADDITIONAL_PATH:$OLD_GUI_PATH
     launchctl setenv PATH $NEW_GUI_PATH
 fi
+
+launchctl setenv M2_HOME $M2_HOME
