@@ -22,3 +22,4 @@ then
 fi
 
 launchctl setenv M2_HOME $M2_HOME
+launchctl setenv JAVA_HOME $JAVA_HOME
