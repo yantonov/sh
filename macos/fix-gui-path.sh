@@ -23,3 +23,4 @@ fi
 
 launchctl setenv M2_HOME $M2_HOME
 launchctl setenv JAVA_HOME $JAVA_HOME
+launchctl setenv LEIN_BIN_HOME $LEIN_BIN_HOME
