@@ -13,7 +13,7 @@
   </array>
 
   <key>StartInterval</key>
-  <integer>60</integer>
+  <integer>1200</integer>
 
   <key>ExitTimeOut</key>
   <integer>0</integer>
