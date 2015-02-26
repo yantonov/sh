@@ -2,7 +2,7 @@
 # .profile contains following line
 # source ~/.profile_custom
 
-export PS1="\u>"
+export PS1="\u@\h:\w>"
 
 # [ aliases ]
 # [ development ]
