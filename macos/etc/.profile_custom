@@ -4,12 +4,6 @@
 
 export PS1="\h:\w>"
 
-# [ aliases ]
-# [ development ]
-# development hg repositories
-alias hgrepos="cd ~/Development/hg/"
-alias gitrepos="cd ~/Development/git/"
-alias devbin="cd ~/Development/bin"
 # [ shell ]
 ## Colorize the ls output ##
 alias ls='ls -G '
@@ -21,10 +15,13 @@ alias l.='ls -d .* -G '
 # common
 export DEVELOPMENT_HOME=$HOME/Development
 export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
-export DEVELOPMENT_SH_MACOS=$DEVELOPMENT_HOME/sh/macos
-export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh/common
+export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
+export DEVELOPMENT_SH_MACOS=$DEVELOPMENT_SH/macos
+export DEVELOPMENT_SH_COMMON=$DEVELOPMENT_SH/common
 # dvcs
 export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
+export HG_REPOS=$DEVELOPMENT_HOME/hg
+export GIT_REPOS=$DEVELOPMENT_HOME/git
 # net
 export WGET_HOME=$DEVELOPMENT_BIN/wget
 # jdk
@@ -47,7 +44,7 @@ export CABAL_HOME=$HOME/.cabal
 export GIT_HOME=/usr/local/git/bin
 # path
 TMP=$WGET_HOME/bin
-TMP=$DEVELOPMENT_SH:$TMP
+TMP=$DEVELOPMENT_SH_COMMON:$TMP
 TMP=$DEVELOPMENT_SH_MACOS:$TMP
 TMP=$JAVA_HOME/bin:$TMP
 TMP=$SCALA_HOME/bin:$TMP
@@ -67,3 +64,12 @@ if [[ $PATH != *$ADDITIONAL_PATH* ]]
 then
     export PATH=$ADDITIONAL_PATH:$PATH
 fi
+
+# bash aliases
+# [ aliases ]
+# [ development ]
+# development hg repositories
+alias hgrepos="cd $HG_REPOS"
+alias gitrepos="cd $GIT_REPOS"
+alias devbin="cd $DEVELOPMENT_BIN"
+alias devsh="cd $DEVELOPMENT_SH"
