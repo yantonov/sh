@@ -1,0 +1,69 @@
+# all .profile customization are extracted to this file
+# .profile contains following line
+# source ~/.profile_custom
+
+export PS1="\u>"
+
+# [ aliases ]
+# [ development ]
+# development hg repositories
+alias hgrepos="cd ~/Development/hg/"
+alias gitrepos="cd ~/Development/git/"
+alias devbin="cd ~/Development/bin"
+# [ shell ]
+## Colorize the ls output ##
+alias ls='ls -G '
+## Use a long listing format ##
+alias ll='ls -la '
+## Show hidden files ##
+alias l.='ls -d .* -G '
+
+# common
+export DEVELOPMENT_HOME=$HOME/Development
+export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
+export DEVELOPMENT_SH_MACOS=$DEVELOPMENT_HOME/sh/macos
+export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh/common
+# dvcs
+export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
+# net
+export WGET_HOME=$DEVELOPMENT_BIN/wget
+# jdk
+export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
+export JAVA_HOME=$JDK8_HOME
+# scala
+export SCALA_HOME=$DEVELOPMENT_BIN/scala
+# maven
+export M2_HOME=$DEVELOPMENT_BIN/maven
+# leiningen
+export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
+# ant
+export ANT_HOME=$DEVELOPMENT_BIN/ant
+# mongo
+export MONGO_HOME=$DEVELOPMENT_BIN/mongo
+# haskell
+export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
+export CABAL_HOME=$HOME/.cabal
+# git
+export GIT_HOME=/usr/local/git/bin
+# path
+TMP=$WGET_HOME/bin
+TMP=$DEVELOPMENT_SH:$TMP
+TMP=$DEVELOPMENT_SH_MACOS:$TMP
+TMP=$JAVA_HOME/bin:$TMP
+TMP=$SCALA_HOME/bin:$TMP
+TMP=$M2_HOME/bin:$TMP
+TMP=$LEIN_BIN_HOME:$TMP
+TMP=$ANT_HOME/bin:$TMP
+TMP=$MONGO_HOME/bin:$TMP
+TMP=$HASKELL_HOME/bin:$TMP
+TMP=$CABAL_HOME/bin:$TMP
+TMP=$HOME/.local/bin:$TMP
+TMP=$GIT_HOME:$TMP
+TMP=.:$TMP
+export ADDITIONAL_PATH=$TMP
+
+# patch PATH for terminal programs
+if [[ $PATH != *$ADDITIONAL_PATH* ]]
+then
+    export PATH=$ADDITIONAL_PATH:$PATH
+fi
