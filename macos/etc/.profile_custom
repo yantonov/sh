@@ -42,6 +42,8 @@ export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
 # git
 export GIT_HOME=/usr/local/git/bin
+# phantomjs
+export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
 # path
 TMP=$WGET_HOME/bin
 TMP=$DEVELOPMENT_SH_COMMON:$TMP
@@ -56,6 +58,7 @@ TMP=$HASKELL_HOME/bin:$TMP
 TMP=$CABAL_HOME/bin:$TMP
 TMP=$HOME/.local/bin:$TMP
 TMP=$GIT_HOME:$TMP
+TMP=$PHANTOMJS_HOME/bin:$TMP
 TMP=.:$TMP
 export ADDITIONAL_PATH=$TMP
 
