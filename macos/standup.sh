@@ -5,6 +5,3 @@
 osascript -e 'display notification "Stand up" with title "Healthy programmer"'
 
 say "Stand up"
-
-SCRIPT_DIR=$(cd `dirname $0` && pwd)
-
