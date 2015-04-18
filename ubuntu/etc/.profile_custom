@@ -1,0 +1,89 @@
+# [ bash ]
+## Colorize the ls output ##
+alias ls='ls --color=auto'
+## Use a long listing format ##
+alias ll='ls -la'
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
+# make parent directory if needed
+alias mkdir='mkdir -pv'
+## colorize the grep
+alias grep='grep --color=auto '
+
+# common
+export DEVELOPMENT_HOME=$HOME/Development
+export DEVELOPMENT_BIN=${DEVELOPMENT_HOME}/bin
+export DEVELOPMENT_SH=${DEVELOPMENT_HOME}/sh
+# emacs
+export EMACS_HOME=~/emacs
+# jdk
+export JDK7_HOME=${DEVELOPMENT_BIN}/jdk7
+export JDK8_HOME=${DEVELOPMENT_BIN}/jdk8
+export JAVA_HOME=${DEVELOPMENT_BIN}/jdk
+# idea home
+export IDEA_HOME=${DEVELOPMENT_BIN}/idea
+# emacs
+export EMACS_HOME=${DEVELOPMENT_BIN}/emacs
+# erlang
+export REBAR_HOME=${DEVELOPMENT_BIN}/rebar
+# haskell
+export HASKELL_HOME=${DEVELOPMENT_BIN}/ghc
+export CABAL_HOME=${HOME}/.cabal
+# deployment
+export ANT_HOME=${DEVELOPMENT_BIN}/ant
+export M2_HOME=${DEVELOPMENT_BIN}/maven
+export MAVEN_OPTS=" -Xms256m -Xmx512m"
+# lein
+export LEIN_BIN_HOME=${DEVELOPMENT_BIN}/lein
+# app container
+export CATALINA_HOME=${DEVELOPMENT_BIN}/tomcat
+# cljs
+export CLOJURESCRIPT_HOME=${DEVELOPMENT_BIN}/clojurescript
+# android
+export ANDROID_HOME=${DEVELOPMENT_BIN}/android
+export ANDROID_SDK=${ANDROID_HOME}/sdk
+export ANDROID_ECLIPSE=${ANDROID_HOME}/eclipse
+# vcs, scm
+export HG_REPOS=${DEVELOPMENT_HOME}/hg
+export GIT_REPOS=${DEVELOPMENT_HOME}/git
+# persistence
+export MONGODB_HOME=${DEVELOPMENT_BIN}/mongodb
+export MONGODB_DATA=${MONGODB_HOME}/data
+# system
+PATH=${DEVELOPMENT_SH}:${PATH}
+PATH=${EMACS_HOME}/bin:${PATH}
+PATH=${REBAR_HOME}:${PATH}
+PATH=${HASKELL_HOME}/bin:${PATH}
+PATH=${CABAL_HOME}/bin:${PATH}
+PATH=${CLOJURESCRIPT_HOME}/bin:${PATH}
+PATH=${MONGODB_HOME}:${PATH}
+PATH=${ANT_HOME}/bin:${PATH}
+PATH=${M2_HOME}/bin:${PATH}
+PATH=${LEIN_BIN_HOME}:${PATH}
+PATH=${IDEA_HOME}/bin:${PATH}
+PATH=${JAVA_HOME}/bin:${PATH}
+export PATH=.:${PATH}
+
+# [ development ]
+alias hgrepos="cd $HG_REPOS"
+alias gitrepos="cd $GIT_REPOS"
+alias devbin="cd $DEVELOPMENT_BIN"
+alias debsh="cd $DEVELOPMENT_SH"
+
+# [ editor ]
+alias ec='$EMACS_HOME/bin/ec.sh'
+alias et='$EMACS_HOME/bin/et.sh'
+alias es='$EMACS_HOME/bin/es.sh'
+
+# [ security ]
+alias ipt-allow="sudo /etc/init.d/yantonov-allow-all-iptables.sh"
+alias ipt-deny="sudo /etc/init.d/yantonov-deny-all-iptables.sh"
+alias ipt-enable-hlab="sudo /etc/init.d/yantonov-enable-hlab-iptables.sh"
+
+# [ vsc / scm ]
+alias gitr='cd `git rev-parse --show-toplevel`'
+alias hgr='cd `hg root`'
+
+# [ sudo ]
+alias fuck='sudo $(fc -ln -1)
+
