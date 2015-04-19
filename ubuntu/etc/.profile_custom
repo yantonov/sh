@@ -90,5 +90,4 @@ alias gitr='cd `git rev-parse --show-toplevel`'
 alias hgr='cd `hg root`'
 
 # [ sudo ]
-alias fuck='sudo $(fc -ln -1)
-
+alias fuck='sudo $(fc -ln -1)'
