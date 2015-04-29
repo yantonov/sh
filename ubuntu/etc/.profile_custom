@@ -73,7 +73,7 @@ export PATH=.:$PATH
 alias hgrepos="cd $HG_REPOS"
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
-alias debsh="cd $DEVELOPMENT_SH"
+alias devsh="cd $DEVELOPMENT_SH"
 alias gitr="cd `git root`"
 
 # [ editor ]
