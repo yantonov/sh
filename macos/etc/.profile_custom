@@ -39,7 +39,7 @@ export ANT_HOME=$DEVELOPMENT_BIN/ant
 # mongo
 export MONGO_HOME=$DEVELOPMENT_BIN/mongo
 # haskell
-export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
+export GHC_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
 # git
 export GIT_HOME=/usr/local/git/bin
@@ -56,7 +56,7 @@ TMP=$M2_HOME/bin:$TMP
 TMP=$LEIN_BIN_HOME:$TMP
 TMP=$ANT_HOME/bin:$TMP
 TMP=$MONGO_HOME/bin:$TMP
-TMP=$HASKELL_HOME/bin:$TMP
+TMP=$GHC_HOME/bin:$TMP
 TMP=$CABAL_HOME/bin:$TMP
 TMP=$HOME/.local/bin:$TMP
 TMP=$GIT_HOME:$TMP
