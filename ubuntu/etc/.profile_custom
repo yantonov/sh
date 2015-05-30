@@ -9,6 +9,11 @@ alias l.='ls -d .* --color=auto'
 alias mkdir='mkdir -pv'
 ## colorize the grep
 alias grep='grep --color=auto '
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # common
 export DEVELOPMENT_HOME=$HOME/Development

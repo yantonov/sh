@@ -11,6 +11,11 @@ alias ls='ls -G '
 alias ll='ls -la '
 ## Show hidden files ##
 alias l.='ls -d .* -G '
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # common
 export DEVELOPMENT_HOME=$HOME/Development
