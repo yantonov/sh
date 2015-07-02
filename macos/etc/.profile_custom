@@ -42,6 +42,9 @@ export M2_HOME=$DEVELOPMENT_BIN/maven
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
+# rust
+export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
+export RACER_HOME=$DEVELOPMENT_BIN/racer/target/release
 # mongo
 export MONGO_HOME=$DEVELOPMENT_BIN/mongo
 # haskell
@@ -60,6 +63,7 @@ TMP=$SCALA_HOME/bin:$TMP
 TMP=$SBT_HOME/bin:$TMP
 TMP=$M2_HOME/bin:$TMP
 TMP=$LEIN_BIN_HOME:$TMP
+TMP=$RACER_HOME:$TMP
 TMP=$ANT_HOME/bin:$TMP
 TMP=$MONGO_HOME/bin:$TMP
 TMP=$GHC_HOME/bin:$TMP
