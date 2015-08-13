@@ -56,6 +56,7 @@ export ANDROID_SDK=$ANDROID_HOME/sdk
 export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
 # golang
 export GO_HOME=$DEVELOPMENT_BIN/go
+export GOPATH=$DEVELOPMENT_BIN/gopath
 export GOROOT=$GO_HOME
 # vcs, scm
 export HG_REPOS=$DEVELOPMENT_HOME/hg
