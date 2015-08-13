@@ -55,6 +55,8 @@ export CABAL_HOME=$HOME/.cabal
 export GIT_HOME=/usr/local/git/bin
 # phantomjs
 export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
+# ocaml
+export OPAM_HOME=$DEVELOPMENT_BIN/opam
 # path
 TMP=$WGET_HOME/bin
 TMP=$DEVELOPMENT_SH_COMMON:$TMP
@@ -72,6 +74,7 @@ TMP=$CABAL_HOME/bin:$TMP
 TMP=$HOME/.local/bin:$TMP
 TMP=$GIT_HOME:$TMP
 TMP=$PHANTOMJS_HOME/bin:$TMP
+TMP=$OPAM_HOME/bin:$TMP
 TMP=.:$TMP
 export ADDITIONAL_PATH=$TMP
 
