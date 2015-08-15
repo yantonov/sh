@@ -51,6 +51,9 @@ export MONGO_HOME=$DEVELOPMENT_BIN/mongo
 # haskell
 export GHC_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
+# go lang
+export GOROOT=$DEVELOPMENT_BIN/go
+export GOPATH=$DEVELOPMENT_BIN/gopath
 # git
 export GIT_HOME=/usr/local/git/bin
 # phantomjs
@@ -75,6 +78,8 @@ TMP=$HOME/.local/bin:$TMP
 TMP=$GIT_HOME:$TMP
 TMP=$PHANTOMJS_HOME/bin:$TMP
 TMP=$OPAM_HOME/bin:$TMP
+TMP=$GOROOT/bin:$TMP
+TMP=$GOPATH/bin:$TMP
 TMP=.:$TMP
 export ADDITIONAL_PATH=$TMP
 
