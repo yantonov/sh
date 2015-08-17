@@ -34,9 +34,10 @@ export REBAR_HOME=$DEVELOPMENT_BIN/rebar
 # haskell
 export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
-# rust
-RUST_HOME=$DEVELOPMENT_BIN/rust
-CMAKE_HOME=$DEVELOPMENT_BIN/cmake
+# racer
+export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
+export RACER_HOME=$DEVELOPMENT_BIN/racer
+export RACER_PATH=$RACER_HOME/target/release
 # scala
 export SCALA_HOME=$DEVELOPMENT_BIN/scala
 export SBT_HOME=$DEVELOPMENT_BIN/sbt
