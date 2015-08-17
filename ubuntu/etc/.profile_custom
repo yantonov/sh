@@ -19,6 +19,9 @@ alias .....='cd ../../../..'
 export DEVELOPMENT_HOME=$HOME/Development
 export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
+# vcs, scm
+export HG_REPOS=$DEVELOPMENT_HOME/hg
+export GIT_REPOS=$DEVELOPMENT_HOME/git
 # emacs
 export EMACS_HOME=~/emacs
 # jdk
@@ -59,9 +62,6 @@ export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
 export GO_HOME=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 export GOROOT=$GO_HOME
-# vcs, scm
-export HG_REPOS=$DEVELOPMENT_HOME/hg
-export GIT_REPOS=$DEVELOPMENT_HOME/git
 # persistence
 export MONGODB_HOME=$DEVELOPMENT_BIN/mongodb
 export MONGODB_DATA=$MONGODB_HOME/data
