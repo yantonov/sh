@@ -31,7 +31,7 @@ alias es='$EMACS_HOME/bin/es.sh'
 # [ security ]
 alias ipt-allow="sudo /etc/init.d/yantonov-allow-all-iptables.sh"
 alias ipt-deny="sudo /etc/init.d/yantonov-deny-all-iptables.sh"
-alias ipt-enable-hlab="sudo /etc/init.d/yantonov-enable-hlab-iptables.sh"
+alias ipt-enable-h="sudo /etc/init.d/yantonov-enable-h-iptables.sh"
 
 # [ vsc / scm ]
 alias gitr='cd `git rev-parse --show-toplevel`'
