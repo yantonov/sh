@@ -9,7 +9,7 @@
   <array>
     <string>sh</string>
     <string>-c</string>
-    <string>"$HOME/Development/sh/macos/standup.sh"</string>
+    <string>"$HOME/Development/sh/mac/standup.sh"</string>
   </array>
 
   <key>StartInterval</key>

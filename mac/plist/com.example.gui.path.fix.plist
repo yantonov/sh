@@ -8,7 +8,7 @@
     <array>
         <string>sh</string>
         <string>-c</string>
-        <string>"$HOME/Development/sh/macos/fix-gui-path.sh"</string>
+        <string>"$HOME/Development/sh/mac/fix-gui-path.sh"</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
