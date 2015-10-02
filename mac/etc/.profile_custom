@@ -61,6 +61,8 @@ export GIT_HOME=/usr/local/git/bin
 export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
 # ocaml
 export OPAM_HOME=$DEVELOPMENT_BIN/opam
+# elastic
+export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
 # path
 TMP=$WGET_HOME/bin
 TMP=$DEVELOPMENT_SH_COMMON:$TMP
