@@ -22,6 +22,8 @@ emacs - script to run gui emacs on mac os
 
 marks.sh - tools to quick nativate in filesystem
 
+uninstall-pkg.sh - uninstall given pkg files (in some case you do not have uninstaller)
+
 #### nix (common unix)
 
 pid-by-ports.sh - list of listening ports with pids
