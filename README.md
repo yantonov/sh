@@ -28,11 +28,3 @@ uninstall-pkg.sh - uninstall given pkg files (in some case you do not have unins
 
 pid-by-ports.sh - list of listening ports with pids
 
-#### win
-
-hg-remove-trash.bat - remove orig, rej files from hg 
-
-
-
-
-
