@@ -63,6 +63,9 @@ export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
 export OPAM_HOME=$DEVELOPMENT_BIN/opam
 # elastic
 export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
+# julia
+# JULIA_HOME is preserved var
+export JULIA_BIN_HOME=$DEVELOPMENT_BIN/julia
 # path
 TMP=$WGET_HOME/bin
 TMP=$MERCURIAL_HOME:$TMP
@@ -85,6 +88,7 @@ TMP=$PHANTOMJS_HOME/bin:$TMP
 TMP=$OPAM_HOME/bin:$TMP
 TMP=$GOROOT/bin:$TMP
 TMP=$GOPATH/bin:$TMP
+TMP=$JULIA_BIN_HOME/bin:$TMP
 TMP=.:$TMP
 export ADDITIONAL_PATH=$TMP
 
