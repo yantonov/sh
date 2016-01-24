@@ -16,6 +16,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias dockerpsn='docker ps --format="{{.Names}}"'
+alias dockerpsn1='dockerpsn | head -n 1'
 
 # common
 export DEVELOPMENT_HOME=$HOME/Development
