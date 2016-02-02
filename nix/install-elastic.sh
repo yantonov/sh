@@ -18,6 +18,9 @@ else
     curl -L -o $PACKAGE_FILENAME $DIST_URL
     # extract to install dir
     unzip -d $INSTALL_DIR/$TARGET_DIR $PACKAGE_FILENAME
+    # reduce dir depth
+    mv $INSTALL_DIR/$TARGET_DIR/elasticsearch-$ELASTIC_VERSION/* $INSTALL_DIR/$TARGET_DIR
+    rmdir $INSTALL_DIR/$TARGET_DIR/elasticsearch-$ELASTIC_VERSION
     # cleanup downloaded files
     rm $PACKAGE_FILENAME
     cd $INSTALL_DIR
