@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ELASTIC_VERSION="2.1.1"
+ELASTIC_VERSION="2.2.0"
 
 INSTALL_DIR="$HOME/Development/bin"
 TARGET_DIR="elastic-$ELASTIC_VERSION"
