@@ -31,7 +31,7 @@ rmdir go
 rm $GO_DIST_FILENAME
 
 cd $INSTALL_DIR
-if [ -f "go" ];
+if [ -L "go" ];
 then
     echo "delete old symlink to go dist...";
     rm -fv go
