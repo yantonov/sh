@@ -15,7 +15,8 @@ export ANDROID_HOME=$DEVELOPMENT_BIN/android
 export ANDROID_SDK=$ANDROID_HOME/sdk
 export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
 # emacs binary
-export EMACS_HOME=$DEVELOPMENT_BIN/emacs
+export EMACS_HOME=$HOME/emacs
+export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
 # erlang
 export REBAR_HOME=$DEVELOPMENT_BIN/rebar
 # golang
@@ -56,7 +57,7 @@ export MY_PATHS=(
     $DEVELOPMENT_SH
     $ANT_HOME/bin
     $CABAL_HOME/bin
-    $EMACS_HOME/bin
+    $EMACS_BIN_HOME/bin
     $GO_HOME/bin
     $GOTMP_PATH/bin
     $IDEA_HOME/bin
