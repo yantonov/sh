@@ -55,23 +55,23 @@ export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 export MY_PATHS=(
     $DEVELOPMENT_SH
     $ANT_HOME/bin
-    $CABAL_HOME
-    $EMACS_HOME
-    $GO_HOME
-    $GOTMP_PATH
-    $IDEA_HOME
-    $JAVA_HOME
-    $HASKELL_HOME
+    $CABAL_HOME/bin
+    $EMACS_HOME/bin
+    $GO_HOME/bin
+    $GOTMP_PATH/bin
+    $IDEA_HOME/bin
+    $JAVA_HOME/bin
+    $HASKELL_HOME/bin
     $LEIN_BIN_HOME
-    $M2_HOME
+    $M2_HOME/bin
     $MONGODB_HOME
-    $PHANTOMJS_HOME
+    $PHANTOMJS_HOME/bin
     $RACER_TMP_PATH
     $REBAR_HOME
-    $SBT_HOME
+    $SBT_HOME/bin
     $STACK_HOME
-    $SCALA_HOME
-    $SPARK_HOME
+    $SCALA_HOME/bin
+    $SPARK_HOME/bin
     "."
 )
 
@@ -99,8 +99,8 @@ function not_in_path {
     echo `join ":" "${not_used[@]}"`
 }
 
-ADDITIONAL_PATH=`not_in_path $PATH "${MY_PATHS[@]}"`
-if [ -n "$ADDITIONAL_PATH" ]; then
-   export PATH=$ADDITIONAL_PATH:$PATH
+export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
+if [ -n "$MY_ADDITIONAL_PATHS" ]; then
+   export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi
 
