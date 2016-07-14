@@ -52,23 +52,55 @@ export SPARK_HOME=$DEVELOPMENT_BIN/spark
 export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 
 # path
-TMP_PATH=$DEVELOPMENT_SH
-TMP_PATH=$ANT_HOME/bin:$TMP_PATH
-TMP_PATH=$CABAL_HOME/bin:$TMP_PATH
-TMP_PATH=$EMACS_HOME/bin:$TMP_PATH
-TMP_PATH=$GO_HOME/bin:$TMP_PATH
-TMP_PATH=$GOTMP_PATH/bin:$TMP_PATH
-TMP_PATH=$IDEA_HOME/bin:$TMP_PATH
-TMP_PATH=$JAVA_HOME/bin:$TMP_PATH
-TMP_PATH=$HASKELL_HOME/bin:$TMP_PATH
-TMP_PATH=$LEIN_BIN_HOME:$TMP_PATH
-TMP_PATH=$M2_HOME/bin:$TMP_PATH
-TMP_PATH=$MONGODB_HOME:$TMP_PATH
-TMP_PATH=$PHANTOMJS_HOME/bin:$TMP_PATH
-TMP_PATH=$RACER_TMP_PATH:$TMP_PATH
-TMP_PATH=$REBAR_HOME:$TMP_PATH
-TMP_PATH=$STACK_HOME:$TMP
-TMP_PATH=$SBT_HOME/bin:$TMP_PATH
-TMP_PATH=$SCALA_HOME/bin:$TMP_PATH
-TMP_PATH=$SPARK_HOME/bin:$TMP_PATH
-export PATH=.:$TMP_PATH:$PATH
+export MY_PATHS=(
+    $DEVELOPMENT_SH
+    $ANT_HOME/bin
+    $CABAL_HOME
+    $EMACS_HOME
+    $GO_HOME
+    $GOTMP_PATH
+    $IDEA_HOME
+    $JAVA_HOME
+    $HASKELL_HOME
+    $LEIN_BIN_HOME
+    $M2_HOME
+    $MONGODB_HOME
+    $PHANTOMJS_HOME
+    $RACER_TMP_PATH
+    $REBAR_HOME
+    $SBT_HOME
+    $STACK_HOME
+    $SCALA_HOME
+    $SPARK_HOME
+    "."
+)
+
+function join {
+    local IFS="$1"
+    shift
+    echo "$*"
+}
+
+function not_in_path {
+    current_path=$1
+    shift
+    my_paths="$@"
+
+    i=0
+    declare -a not_used=()
+
+    for p in ${my_paths[@]}
+    do
+        if [[ $current_path != *$p* ]]; then
+            not_used[$i]="$p"
+            i=$((i + 1))
+        fi
+    done
+    echo `join ":" "${not_used[@]}"`
+}
+
+ADDITIONAL_PATH=`not_in_path $PATH "${MY_PATHS[@]}"`
+if [ -n "$ADDITIONAL_PATH" ]; then
+   export PATH=$ADDITIONAL_PATH:$PATH
+fi
+
