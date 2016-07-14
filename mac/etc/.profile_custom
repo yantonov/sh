@@ -33,75 +33,79 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export DEVELOPMENT_SH_MACOS=$DEVELOPMENT_SH/mac
 export DEVELOPMENT_SH_COMMON=$DEVELOPMENT_SH/common
-# dvcs
-export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
-# net
-export WGET_HOME=$DEVELOPMENT_BIN/wget
-# jdk
-export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
-export JDK_HOME=$DEVELOPMENT_BIN/jdk
-export JAVA_HOME=$JDK_HOME
-# scala
-export SCALA_HOME=$DEVELOPMENT_BIN/scala
-export SBT_HOME=$DEVELOPMENT_BIN/sbt
-# maven
-export M2_HOME=$DEVELOPMENT_BIN/maven
-# leiningen
-export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
+
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
-# rust
-export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
-export RACER_HOME=$DEVELOPMENT_BIN/racer
-export RACER_PATH=$RACER_HOME/target/release
-# mongo
-export MONGO_HOME=$DEVELOPMENT_BIN/mongo
+# elastic
+export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
+# git
+export GIT_HOME=/usr/local/git/bin
+# go lang
+export GOROOT=$DEVELOPMENT_BIN/go
+export GOPATH=$DEVELOPMENT_BIN/gopath
 # haskell
 export GHC_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
 export STACK_HOME=$DEVELOPMENT_BIN/stack
-# go lang
-export GOROOT=$DEVELOPMENT_BIN/go
-export GOPATH=$DEVELOPMENT_BIN/gopath
-# git
-export GIT_HOME=/usr/local/git/bin
-# phantomjs
-export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
-# ocaml
-export OPAM_HOME=$DEVELOPMENT_BIN/opam
-# elastic
-export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
+# hg
+export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
+# jdk
+export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
+export JDK_HOME=$DEVELOPMENT_BIN/jdk
+export JAVA_HOME=$JDK_HOME
 # julia
 # JULIA_HOME is preserved var
 export JULIA_BIN_HOME=$DEVELOPMENT_BIN/julia
+# net
+export WGET_HOME=$DEVELOPMENT_BIN/wget
+# scala
+export SCALA_HOME=$DEVELOPMENT_BIN/scala
+export SBT_HOME=$DEVELOPMENT_BIN/sbt
+# spark
+export SPARK_HOME=$DEVELOPMENT_BIN/spark
+# leiningen
+export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
+# maven
+export M2_HOME=$DEVELOPMENT_BIN/maven
+# mongo
+export MONGO_HOME=$DEVELOPMENT_BIN/mongo
+# ocaml
+export OPAM_HOME=$DEVELOPMENT_BIN/opam
+# phantomjs
+export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
+# rust
+export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
+export RACER_HOME=$DEVELOPMENT_BIN/racer
+export RACER_PATH=$RACER_HOME/target/release
 # visual vm
 export VISUAL_VM_HOME=$DEVELOPMENT_BIN/visualvm
 # path
-TMP=$WGET_HOME/bin
-TMP=$MERCURIAL_HOME:$TMP
+TMP=$ANT_HOME/bin:$TMP
+TMP=$CABAL_HOME/bin:$TMP
 TMP=$DEVELOPMENT_SH_COMMON:$TMP
 TMP=$DEVELOPMENT_SH_MACOS:$TMP
-TMP=$JAVA_HOME/bin:$TMP
-TMP=$SCALA_HOME/bin:$TMP
-TMP=$SBT_HOME/bin:$TMP
-TMP=$M2_HOME/bin:$TMP
-TMP=$LEIN_BIN_HOME:$TMP
-TMP=$RACER_PATH:$TMP
-TMP=$ANT_HOME/bin:$TMP
-TMP=$MONGO_HOME/bin:$TMP
-TMP=$GHC_HOME/bin:$TMP
-TMP=$CABAL_HOME/bin:$TMP
-TMP=$STACK_HOME:$TMP
-TMP=$HOME/.local/bin:$TMP
 TMP=$GIT_HOME:$TMP
-TMP=$PHANTOMJS_HOME/bin:$TMP
-TMP=$OPAM_HOME/bin:$TMP
+TMP=$GHC_HOME/bin:$TMP
 TMP=$GOROOT/bin:$TMP
 TMP=$GOPATH/bin:$TMP
+TMP=$JAVA_HOME/bin:$TMP
 TMP=$JULIA_BIN_HOME/bin:$TMP
+TMP=$LEIN_BIN_HOME:$TMP
+TMP=$M2_HOME/bin:$TMP
+TMP=$MERCURIAL_HOME:$TMP
+TMP=$MONGO_HOME/bin:$TMP
+TMP=$OPAM_HOME/bin:$TMP
+TMP=$PHANTOMJS_HOME/bin:$TMP
+TMP=$RACER_PATH:$TMP
+TMP=$SBT_HOME/bin:$TMP
+TMP=$SCALA_HOME/bin:$TMP
+TMP=$SPARK_HOME/bin:$TMP
+TMP=$STACK_HOME:$TMP
 TMP=$VISUAL_VM_HOME/bin:$TMP
+TMP=$WGET_HOME/bin:$TMP
+TMP=$HOME/.local/bin:$TMP
 TMP=.:$TMP
 export ADDITIONAL_PATH=$TMP
 
@@ -120,4 +124,3 @@ alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
 alias gitr='cd `git root`'
-
