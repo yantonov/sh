@@ -81,38 +81,64 @@ export RACER_HOME=$DEVELOPMENT_BIN/racer
 export RACER_PATH=$RACER_HOME/target/release
 # visual vm
 export VISUAL_VM_HOME=$DEVELOPMENT_BIN/visualvm
-# path
-TMP=$ANT_HOME/bin:$TMP
-TMP=$CABAL_HOME/bin:$TMP
-TMP=$DEVELOPMENT_SH_COMMON:$TMP
-TMP=$DEVELOPMENT_SH_MACOS:$TMP
-TMP=$GIT_HOME:$TMP
-TMP=$GHC_HOME/bin:$TMP
-TMP=$GOROOT/bin:$TMP
-TMP=$GOPATH/bin:$TMP
-TMP=$JAVA_HOME/bin:$TMP
-TMP=$JULIA_BIN_HOME/bin:$TMP
-TMP=$LEIN_BIN_HOME:$TMP
-TMP=$M2_HOME/bin:$TMP
-TMP=$MERCURIAL_HOME:$TMP
-TMP=$MONGO_HOME/bin:$TMP
-TMP=$OPAM_HOME/bin:$TMP
-TMP=$PHANTOMJS_HOME/bin:$TMP
-TMP=$RACER_PATH:$TMP
-TMP=$SBT_HOME/bin:$TMP
-TMP=$SCALA_HOME/bin:$TMP
-TMP=$SPARK_HOME/bin:$TMP
-TMP=$STACK_HOME:$TMP
-TMP=$VISUAL_VM_HOME/bin:$TMP
-TMP=$WGET_HOME/bin:$TMP
-TMP=$HOME/.local/bin:$TMP
-TMP=.:$TMP
-export ADDITIONAL_PATH=$TMP
 
+# path
+export MY_PATHS=(
+    $ANT_HOME/bin
+    $CABAL_HOME/bin
+    $DEVELOPMENT_SH_COMMON
+    $DEVELOPMENT_SH_MACOS
+    $GIT_HOME
+    $GHC_HOME/bin
+    $GOROOT/bin
+    $GOPATH/bin
+    $JAVA_HOME/bin
+    $JULIA_BIN_HOME/bin
+    $LEIN_BIN_HOME
+    $M2_HOME/bin
+    $MERCURIAL_HOME
+    $MONGO_HOME/bin
+    $OPAM_HOME/bin
+    $PHANTOMJS_HOME/bin
+    $RACER_PATH
+    $SBT_HOME/bin
+    $SCALA_HOME/bin
+    $SPARK_HOME/bin
+    $STACK_HOME
+    $VISUAL_VM_HOME/bin
+    $WGET_HOME/bin
+    $HOME/.local/bin
+    .
+)
+
+function join {
+    local IFS="$1"
+    shift
+    echo "$*"
+}
+
+function not_in_path {
+    current_path=$1
+    shift
+    my_paths="$@"
+
+    i=0
+    declare -a not_used=()
+
+    for p in ${my_paths[@]}
+    do
+        if [[ $current_path != *$p* ]]; then
+            not_used[$i]="$p"
+            i=$((i + 1))
+        fi
+    done
+    echo `join ":" "${not_used[@]}"`
+}
+
+export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 # patch PATH for terminal programs
-if [[ $PATH != *$ADDITIONAL_PATH* ]]
-then
-    export PATH=$ADDITIONAL_PATH:$PATH
+if [ -n "$MY_ADDITIONAL_PATHS" ]; then
+   export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi
 
 # bash aliases
