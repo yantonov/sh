@@ -12,9 +12,9 @@ deb-pkg-versions.sh - local and remote package versions
 
 marks.sh - tools to quick nativate in filesystem
 
-touchon.sh - enable touchpad
+enable-touchpad.sh - enable touchpad
 
-touchoff.sh - disable touchpad
+disable-touchpad.sh - disable touchpad
 
 #### mac os
 
