@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Version=1.0
+Name=IntelliJ Idea
+Comment=IntelliJ Idea
+Path=$HOME/Development/bin/idea/bin/
+Exec=$HOME/Development/bin/idea/bin/idea.sh
+Icon=$HOME/Development/bin/idea/bin/idea.png
+Terminal=false
+Categories=Application;Code;

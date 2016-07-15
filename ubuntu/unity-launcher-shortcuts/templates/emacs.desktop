@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Version=1.0
+Name=Emacs
+Comment=Emacs editor
+Path=$HOME/Development/bin/emacs/bin/
+Exec=$HOME/Development/bin/emacs/bin/emacs
+Icon=$HOME/Development/bin/emacs/share/icons/hicolor/32x32/apps/emacs.png
+Terminal=false
+Categories=Application;Code;
