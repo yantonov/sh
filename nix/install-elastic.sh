@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ELASTIC_VERSION="2.2.0"
+ELASTIC_VERSION="2.3.4"
 
 INSTALL_DIR="$HOME/Development/bin"
 TARGET_DIR="elastic-$ELASTIC_VERSION"
@@ -33,5 +33,3 @@ else
     # create symlink
     ln -s $INSTALL_DIR/$TARGET_DIR elastic
 fi
-
-
