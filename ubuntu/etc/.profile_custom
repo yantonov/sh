@@ -19,6 +19,8 @@ export EMACS_HOME=$HOME/emacs
 export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
 # erlang
 export REBAR_HOME=$DEVELOPMENT_BIN/rebar
+# elasticsearch
+export ELASTICSEARCH_HOME=$DEVELOPMENT_BIN/elastic
 # golang
 export GO_HOME=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
@@ -58,6 +60,7 @@ export MY_PATHS=(
     $ANT_HOME/bin
     $CABAL_HOME/bin
     $EMACS_BIN_HOME/bin
+    $ELASTICSEARCH_HOME/bin
     $GO_HOME/bin
     $GOTMP_PATH/bin
     $IDEA_HOME/bin
