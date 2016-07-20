@@ -54,11 +54,11 @@ export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
 export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JDK_HOME=$DEVELOPMENT_BIN/jdk
 export JAVA_HOME=$JDK_HOME
+# kotlin
+export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # julia
 # JULIA_HOME is preserved var
 export JULIA_BIN_HOME=$DEVELOPMENT_BIN/julia
-# net
-export WGET_HOME=$DEVELOPMENT_BIN/wget
 # scala
 export SCALA_HOME=$DEVELOPMENT_BIN/scala
 export SBT_HOME=$DEVELOPMENT_BIN/sbt
@@ -80,6 +80,8 @@ export RACER_HOME=$DEVELOPMENT_BIN/racer
 export RACER_PATH=$RACER_HOME/target/release
 # visual vm
 export VISUAL_VM_HOME=$DEVELOPMENT_BIN/visualvm
+# wget
+export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 export MY_PATHS=(
@@ -92,6 +94,7 @@ export MY_PATHS=(
     $GOPATH/bin
     $JAVA_HOME/bin
     $JULIA_BIN_HOME/bin
+    $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $M2_HOME/bin
     $MERCURIAL_HOME
@@ -118,7 +121,7 @@ function join {
 function not_in_path {
     current_path=$1
     shift
-    my_paths="$@"
+    my_paths=$@
 
     i=0
     declare -a not_used=()
