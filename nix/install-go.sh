@@ -15,7 +15,7 @@ case "$1" in
 esac
 
 ARCH="amd64"
-VERSION="1.6"
+VERSION="1.7"
 INSTALL_DIR=$HOME/Development/bin
 GO_DIR=go$VERSION
 GO_DIST_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
