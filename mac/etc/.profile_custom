@@ -49,6 +49,10 @@ export GOPATH=$DEVELOPMENT_BIN/gopath
 export GHC_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
 export STACK_HOME=$DEVELOPMENT_BIN/stack
+# groovy
+export GROOVY_HOME=$DEVELOPMENT_BIN/groovy
+# gradle
+export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
 # hg
 export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
 # jdk
@@ -58,7 +62,6 @@ export JAVA_HOME=$JDK_HOME
 # kotlin
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # julia
-# JULIA_HOME is preserved var
 export JULIA_BIN_HOME=$DEVELOPMENT_BIN/julia
 # scala
 export SCALA_HOME=$DEVELOPMENT_BIN/scala
@@ -93,6 +96,8 @@ export MY_PATHS=(
     $GHC_HOME/bin
     $GOROOT/bin
     $GOPATH/bin
+    $GROOVY_HOME/bin
+    $GRADLE_HOME/bin
     $JAVA_HOME/bin
     $JULIA_BIN_HOME/bin
     $KOTLIN_HOME/bin
