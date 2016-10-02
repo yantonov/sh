@@ -45,14 +45,14 @@ export GIT_HOME=/usr/local/git/bin
 # go lang
 export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
-# haskell
-export GHC_HOME=$DEVELOPMENT_BIN/ghc
-export CABAL_HOME=$HOME/.cabal
-export STACK_HOME=$DEVELOPMENT_BIN/stack
 # groovy
 export GROOVY_HOME=$DEVELOPMENT_BIN/groovy
 # gradle
 export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
+# haskell
+export GHC_HOME=$DEVELOPMENT_BIN/ghc
+export CABAL_HOME=$HOME/.cabal
+export STACK_HOME=$DEVELOPMENT_BIN/stack
 # hg
 export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
 # jdk
