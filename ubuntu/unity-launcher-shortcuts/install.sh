@@ -3,10 +3,16 @@
 SCRIPT_DIR=$(cd `dirname $0` && pwd)
 cd $SCRIPT_DIR
 
+FILE_FILTER=$1
+
 TARGET_DIR="$HOME/.local/share/applications"
 mkdir -p $TARGET_DIR
 
 files=`find templates -type f -name "*.desktop"`
+
+if [ -n "$FILE_FILTER" ]; then
+    files=`echo "$files" | grep $FILE_FILTER`
+fi
 
 escaped_home_dir=`echo $HOME | sed -- "s/\//\\\\\\\\\//g"`
 
