@@ -1,11 +1,12 @@
 [Desktop Entry]
-Encoding=UTF-8
-Type=Application
 Version=1.0
-Name=IntelliJ Idea
-Comment=IntelliJ Idea
+Type=Application
+Encoding=UTF-8
+Name=IntelliJ IDEA
+Comment=The Drive to Develop
 Path=$HOME/Development/bin/idea/bin/
-Exec=$HOME/Development/bin/idea/bin/idea.sh
+Exec="$HOME/Development/bin/idea/bin/idea.sh" %f
 Icon=$HOME/Development/bin/idea/bin/idea.png
+Categories=Development;IDE;
 Terminal=false
-Categories=Application;Code;
+StartupWMClass=jetbrains-idea
