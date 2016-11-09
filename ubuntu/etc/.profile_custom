@@ -63,7 +63,6 @@ export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 # path
 export MY_PATHS=(
     $DEVELOPMENT_SH/ubuntu
-    $DEVELOPMENT_SH/nix
     $ANT_HOME/bin
     $CABAL_HOME/bin
     $EMACS_BIN_HOME/bin
