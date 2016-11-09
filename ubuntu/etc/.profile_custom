@@ -39,6 +39,8 @@ export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JAVA_HOME=$DEVELOPMENT_BIN/jdk
 # idea
 export IDEA_HOME=$DEVELOPMENT_BIN/idea
+# kotlin
+export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlin
 # lein
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
 # mongo
@@ -73,6 +75,7 @@ export MY_PATHS=(
     $IDEA_HOME/bin
     $JAVA_HOME/bin
     $HASKELL_HOME/bin
+    $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $M2_HOME/bin
     $MONGODB_HOME
