@@ -6,7 +6,7 @@ cd ~/Downloads
 
 INSTALL_DIR=~/Development/bin
 BOOT_DIST_URL="https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh"
-BOOT_EXECUTABLE="boot.sh"
+BOOT_EXECUTABLE="boot"
 TARGET_DIRECTORY="$INSTALL_DIR/boot/bin"
 
 curl -L $BOOT_DIST_URL -o $BOOT_EXECUTABLE
