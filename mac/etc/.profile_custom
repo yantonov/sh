@@ -38,6 +38,8 @@ export GIT_REPOS=$DEVELOPMENT_HOME/git
 
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
+# boot
+export BOOT_HOME=$DEVELOPMENT_BIN/boot
 # elastic
 export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
 # git
@@ -90,6 +92,7 @@ export WGET_HOME=$DEVELOPMENT_BIN/wget
 # path
 export MY_PATHS=(
     $ANT_HOME/bin
+    $BOOT_HOME/bin
     $CABAL_HOME/bin
     $DEVELOPMENT_SH_MACOS
     $GIT_HOME
