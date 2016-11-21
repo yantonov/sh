@@ -14,6 +14,8 @@ export MAVEN_OPTS=" -Xms256m -Xmx512m"
 export ANDROID_HOME=$DEVELOPMENT_BIN/android
 export ANDROID_SDK=$ANDROID_HOME/sdk
 export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
+# boot
+export BOOT_HOME=$DEVELOPMENT_BIN/boot
 # emacs binary
 export EMACS_HOME=$HOME/emacs
 export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
@@ -64,6 +66,7 @@ export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 export MY_PATHS=(
     $DEVELOPMENT_SH/ubuntu
     $ANT_HOME/bin
+    $BOOT_HOME/bin
     $CABAL_HOME/bin
     $EMACS_BIN_HOME/bin
     $ELASTICSEARCH_HOME/bin
