@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+Name=PyCharm
+Comment=The Drive to Develop
+Path=$HOME/Development/bin/pycharm/bin/
+Exec="$HOME/Development/bin/pycharm/bin/pycharm.sh" %f
+Icon=$HOME/Development/bin/pycharm/bin/pycharm.png
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-pycharm
