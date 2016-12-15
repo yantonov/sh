@@ -46,6 +46,7 @@ export IDEA_HOME=$DEVELOPMENT_BIN/idea
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # lein
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
+export LEIN_PLUGIN_ALIASES=$HOME/.lein/aliases
 # mongo
 export MONGODB_HOME=$DEVELOPMENT_BIN/mongodb
 export MONGODB_DATA=$MONGODB_HOME/data
@@ -80,6 +81,7 @@ export MY_PATHS=(
     $HASKELL_HOME/bin
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
+    $LEIN_PLUGIN_ALIASES
     $M2_HOME/bin
     $MONGODB_HOME
     $PHANTOMJS_HOME/bin
