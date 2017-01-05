@@ -57,6 +57,8 @@ export CABAL_HOME=$HOME/.cabal
 export STACK_HOME=$DEVELOPMENT_BIN/stack
 # hg
 export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
+# hugo
+export HUGO_HOME=$DEVELOPMENT_BIN/hugo
 # jdk
 export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JDK_HOME=$DEVELOPMENT_BIN/jdk
@@ -101,6 +103,7 @@ export MY_PATHS=(
     $GOPATH/bin
     $GROOVY_HOME/bin
     $GRADLE_HOME/bin
+    $HUGO_HOME/bin
     $JAVA_HOME/bin
     $JULIA_BIN_HOME/bin
     $KOTLIN_HOME/bin

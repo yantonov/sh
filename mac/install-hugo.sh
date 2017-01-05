@@ -1,6 +1,14 @@
 #!/bin/sh
 
 VERSION="0.18.1"
+TARGET_DIR=~/Development/bin
+HUGO_DIR="hugo-${VERSION}"
+
+if [ -d "${TARGET_DIR}/${HUGO_DIR}" ];
+then
+    echo "hugo ${VERSION} has already exists"
+    exit 1
+fi
 
 cd ~/Downloads
 
@@ -15,12 +23,10 @@ if [ -z "${extracted_dir}" ]; then
     exit 1
 fi
 
-TARGET_DIR=~/Development/bin
+mv `basename $extracted_dir` $HUGO_DIR
+
 mkdir -p $TARGET_DIR
-
-HUGO_HOME="${TARGET_DIR}/hugo-${VERSION}"
-
-mv $extracted_dir $HUGO_HOME
+mv $HUGO_DIR $TARGET_DIR
 
 # clean up
 rm $TARGET_DIST_FILENAME
@@ -32,7 +38,14 @@ then
     rm -fv hugo
     echo "old symlink was deleted"
 fi
-cd $HUGO_HOME
+cd $HUGO_DIR
+mkdir -p bin
+versioned_executable=`find . -type f -name "hugo*" | head -n 1`
+if [ -z "$versioned_executable" ]; then
+    echo "cant find hugo executable"
+    exit 1
+fi
+ln -s `pwd`/`basename $versioned_executable` bin/hugo
 ln -s `pwd` ../hugo
 
 echo "hugo ${VERSION} has successfully installed :-)"
