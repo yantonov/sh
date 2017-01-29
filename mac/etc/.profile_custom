@@ -32,7 +32,6 @@ alias flush_dns='sudo killall -HUP mDNSResponder'
 export DEVELOPMENT_HOME=$HOME/Development
 export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
-export DEVELOPMENT_SH_MACOS=$DEVELOPMENT_SH/mac
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 
@@ -96,7 +95,8 @@ export MY_PATHS=(
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
-    $DEVELOPMENT_SH_MACOS
+    $DEVELOPMENT_SH/mac
+    $DEVELOPMENT_SH/nix
     $GIT_HOME
     $GHC_HOME/bin
     $GOROOT/bin
@@ -151,7 +151,7 @@ function not_in_path {
 export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 # patch PATH for terminal programs
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
-   export PATH=$MY_ADDITIONAL_PATHS:$PATH
+    export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi
 
 # bash aliases
