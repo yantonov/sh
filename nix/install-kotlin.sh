@@ -4,7 +4,7 @@ SCRIPT_DIR=$(cd `dirname $0` && pwd)
 
 cd ~/Downloads
 
-KOTLIN_VERSION="1.0.5"
+KOTLIN_VERSION="1.0.6"
 KOTLIN_DIST_FILE_NAME="kotlin-compiler-${KOTLIN_VERSION}.zip"
 KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip"
 KOTLIN_EXTRACTED_DIR="kotlinc"
