@@ -68,6 +68,7 @@ export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 export MY_PATHS=(
     $DEVELOPMENT_SH/ubuntu
     $DEVELOPMENT_SH/nix
+    $DEVELOPMENT_SH/nix/git-recall
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
