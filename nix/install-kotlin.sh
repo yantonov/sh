@@ -4,7 +4,11 @@ SCRIPT_DIR=$(cd `dirname $0` && pwd)
 
 cd ~/Downloads
 
-KOTLIN_VERSION="1.0.6"
+echo "detect latest kotlin version..."
+KOTLIN_VERSION=`curl -s -L https://github.com/JetBrains/kotlin/releases/latest | grep -E 'kotlin-compiler-([.0-9]+).zip' | sed -E 's/.*\/kotlin-compiler-([.0-9]+)\.zip.*/\1/' | head -n 1`
+echo ""
+echo "kotlin $KOTLIN_VERSION will be installed now..."
+echo ""
 KOTLIN_DIST_FILE_NAME="kotlin-compiler-${KOTLIN_VERSION}.zip"
 KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip"
 KOTLIN_EXTRACTED_DIR="kotlinc"
