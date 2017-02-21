@@ -14,11 +14,15 @@ case "$1" in
         ;;
 esac
 
+LATEST_VERSION=`curl -s -L https://golang.org/dl/ | grep -E "go[0-9.]+.linux-amd64.tar.gz" | sed -E 's/.*go([0-9.]+)\.linux-amd64.tar.gz.*/\1/' | head -n 1`
+
 ARCH="amd64"
-VERSION="1.7.4"
+VERSION=$LATEST_VERSION
 INSTALL_DIR=$HOME/Development/bin
 GO_DIR=go$VERSION
 GO_DIST_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
+
+echo "go lang $VERSION will be installed..."
 
 cd ~/Downloads
 curl -O https://storage.googleapis.com/golang/$GO_DIST_FILENAME
@@ -36,4 +40,5 @@ then
     echo "delete old symlink to go dist...";
     rm -fv go
 fi
+echo "create new symlink for go dist"
 ln -s `pwd`/go$VERSION go
