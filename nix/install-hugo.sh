@@ -1,6 +1,16 @@
 #!/bin/sh
 
-VERSION="0.18.1"
+LATEST_VERSION_PAGE="https://github.com/spf13/hugo/releases/latest"
+LATEST_VERSION=`curl -s -L $LATEST_VERSION_PAGE | grep -E '.*hugo_[0-9.]+_Linux-64bit.tar.gz.*' | sed -E 's/.*hugo_([0-9.]+)_Linux-64bit.tar.gz.*/\1/' | head -n 1 || echo ""`
+
+if [ -z "$LATEST_VERSION" ]; then
+    echo "cand detect latest version automarically from page $LATEST_VERSION_PAGE"
+    exit -1
+fi
+
+echo "Latest version: $LATEST_VERSION"
+
+VERSION=$LATEST_VERSION
 TARGET_DIR=~/Development/bin
 HUGO_DIR="hugo-${VERSION}"
 
