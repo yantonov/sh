@@ -22,6 +22,12 @@ INSTALL_DIR=$HOME/Development/bin
 GO_DIR=go$VERSION
 GO_DIST_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
 
+if [ -d "$INSTALL_DIR/$GO_DIR" ];
+then
+    echo "go $VERSION is already installed"
+    exit 0
+fi
+
 echo "go lang $VERSION will be installed..."
 
 cd ~/Downloads
