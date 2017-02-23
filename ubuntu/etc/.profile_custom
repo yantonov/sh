@@ -46,7 +46,7 @@ export IDEA_HOME=$DEVELOPMENT_BIN/idea
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # lein
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
-export LEIN_PLUGIN_ALIASES=$HOME/.lein/aliases
+export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
 # mongo
 export MONGODB_HOME=$DEVELOPMENT_BIN/mongodb
 export MONGODB_DATA=$MONGODB_HOME/data

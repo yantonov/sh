@@ -73,6 +73,7 @@ export SBT_HOME=$DEVELOPMENT_BIN/sbt
 export SPARK_HOME=$DEVELOPMENT_BIN/spark
 # leiningen
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
+export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
 # maven
 export M2_HOME=$DEVELOPMENT_BIN/maven
 # mongo
@@ -109,6 +110,7 @@ export MY_PATHS=(
     $JULIA_BIN_HOME/bin
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
+    $LEIN_PLUGIN_ALIASES
     $M2_HOME/bin
     $MERCURIAL_HOME
     $MONGO_HOME/bin
