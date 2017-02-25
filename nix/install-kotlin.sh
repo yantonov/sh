@@ -6,9 +6,7 @@ cd ~/Downloads
 
 echo "detect latest kotlin version..."
 VERSION=`curl -s -L https://github.com/JetBrains/kotlin/releases/latest | grep -E 'kotlin-compiler-([.0-9]+).zip' | sed -E 's/.*\/kotlin-compiler-([.0-9]+)\.zip.*/\1/' | head -n 1`
-echo ""
-echo "kotlin $VERSION will be installed now..."
-echo ""
+
 KOTLIN_DIST_FILE_NAME="kotlin-compiler-${VERSION}.zip"
 KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${VERSION}/kotlin-compiler-${VERSION}.zip"
 KOTLIN_EXTRACTED_DIR="kotlinc"
@@ -21,6 +19,10 @@ then
     echo "kotlin $VERSION is already installed"
     exit 0
 fi
+
+echo ""
+echo "kotlin $VERSION will be installed now..."
+echo ""
 
 curl -L $KOTLIN_DIST_URL -o $KOTLIN_DIST_FILE_NAME
 
