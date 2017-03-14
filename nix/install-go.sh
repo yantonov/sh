@@ -1,16 +1,17 @@
 #!/bin/sh
 
-case "$1" in
-    linux)
+PLATFORM=`uname`
+
+case "$PLATFORM" in
+    Linux)
         OS="linux"
         ;;
-    mac)
+    Darwin)
         OS="darwin"
         ;;
     *)
-        echo "install-go.sh <os>"
-        echo "\twhere - os - linux | mac"
-        exit 0
+        echo "cant detect os automatically"
+        exit 1
         ;;
 esac
 
