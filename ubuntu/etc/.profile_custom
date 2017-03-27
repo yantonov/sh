@@ -29,6 +29,8 @@ export GO_HOME=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 export GOROOT=$GO_HOME
 # groovy
+export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
+# groovy
 export GROOVY_HOME=$DEVELOPMENT_BIN/groovy
 # haskell
 export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
@@ -74,6 +76,7 @@ export MY_PATHS=(
     $ELASTICSEARCH_HOME/bin
     $GO_HOME/bin
     $GOTMP_PATH/bin
+    $GRADLE_HOME/bin
     $GROOVY_HOME/bin
     $IDEA_HOME/bin
     $JAVA_HOME/bin
@@ -119,6 +122,6 @@ function not_in_path {
 
 export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
-   export PATH=$MY_ADDITIONAL_PATHS:$PATH
+    export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi
 
