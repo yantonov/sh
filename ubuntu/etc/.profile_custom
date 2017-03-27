@@ -28,10 +28,8 @@ export ELASTICSEARCH_HOME=$DEVELOPMENT_BIN/elastic
 export GO_HOME=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 export GOROOT=$GO_HOME
-# groovy
+# gradle
 export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
-# groovy
-export GROOVY_HOME=$DEVELOPMENT_BIN/groovy
 # haskell
 export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
@@ -77,7 +75,6 @@ export MY_PATHS=(
     $GO_HOME/bin
     $GOTMP_PATH/bin
     $GRADLE_HOME/bin
-    $GROOVY_HOME/bin
     $IDEA_HOME/bin
     $JAVA_HOME/bin
     $HASKELL_HOME/bin
