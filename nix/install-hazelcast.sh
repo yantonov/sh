@@ -4,7 +4,7 @@ cd ~/Downloads
 
 DOWNLOAD_PAGE=`curl -L "https://hazelcast.org/download/"`
 
-SOURCE_URL_PATTERN="http://download.hazelcast.com/code-samples/hazelcast-code-samples-([0-9]+(\.[0-9]))*.zip"
+SOURCE_URL_PATTERN="http://download.hazelcast.com/code-samples/hazelcast-code-samples-([0-9]+(\.[0-9])*).zip"
 SED_SOURCE_URL_PATTERN=`echo -n 's/.*'; echo -n $SOURCE_URL_PATTERN | sed -E 's/\//\\\\\//g' ; echo -n '.*/\1/'`
 
 VERSION=`echo $DOWNLOAD_PAGE | grep -E $SOURCE_URL_PATTERN | sed -E $SED_SOURCE_URL_PATTERN | head -n 1`
