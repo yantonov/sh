@@ -26,6 +26,11 @@ echo ""
 
 curl -L $KOTLIN_DIST_URL -o $KOTLIN_DIST_FILE_NAME
 
+if [ $? -ne 0 ]; then
+    echo "cant download distributive"
+    exit 1
+fi
+
 unzip -d . $KOTLIN_DIST_FILE_NAME
 
 mkdir -p $INSTALL_DIR
