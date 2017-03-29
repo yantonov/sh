@@ -3,7 +3,7 @@
 cd ~/Downloads
 
 SOURCE_URL_PATTERN="http://download.hazelcast.com/code-samples/hazelcast-code-samples-([0-9]+(\.[0-9])*).zip"
-ESCAPED_URL=`/bin/echo -n $SOURCE_URL_PATTERN | sed -E 's/\//\\\\\//g'`
+ESCAPED_URL=`echo $SOURCE_URL_PATTERN | sed -E 's/\//\\\\\//g' | head -n 1`
 SED_SOURCE_URL_PATTERN="s/.*$ESCAPED_URL.*/\1/"
 
 DOWNLOAD_PAGE=`curl -L "https://hazelcast.org/download/"`
@@ -19,7 +19,7 @@ if [ -d "$TARGET_DIR/hazelcast-$VERSION" ]; then
     exit 1
 else
     DOWNLOAD_HAZELCAST_ZIP_PATTERN="http://download.hazelcast.com/download.jsp\?version=hazelcast-$VERSION&p="
-    ESCAPED_URL=`/bin/echo -n $DOWNLOAD_HAZELCAST_ZIP_PATTERN | sed -E 's/\//\\\\\//g'`
+    ESCAPED_URL=`echo $DOWNLOAD_HAZELCAST_ZIP_PATTERN | sed -E 's/\//\\\\\//g'`
     SED_DOWNLOAD_HAZELCAST_URL_PATTERN="s/.*($ESCAPED_URL).*/\1/"
 
     DOWNLOAD_URL=`echo $DOWNLOAD_PAGE | grep -E $DOWNLOAD_HAZELCAST_ZIP_PATTERN | sed -E $SED_DOWNLOAD_HAZELCAST_URL_PATTERN | head -n 1`
@@ -36,8 +36,10 @@ else
 
     rm $DIST_FILE_NAME
     if [ -L "$TARGET_DIR/hazelcast" ]; then
+        echo "remove existing symbolic link"
         rm -fv $TARGET_DIR/hazelcast
     fi
+    echo "create new symbolic link"
     ln -s $TARGET_DIR/$HAZELCAST_DISTR $TARGET_DIR/hazelcast
 fi
 
