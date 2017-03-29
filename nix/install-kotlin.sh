@@ -37,13 +37,13 @@ mkdir -p $INSTALL_DIR
 
 mv $KOTLIN_EXTRACTED_DIR ~/Development/bin/$KOTLIN_DESTINATION_DIR
 
-rm -rvi $KOTLIN_DIST_FILE_NAME
+rm -r $KOTLIN_DIST_FILE_NAME
 
 cd $INSTALL_DIR
 
-echo "delete old symlink"
-rm -rvi kotlinc
-echo "create new symlink"
+if [ -L "$KOTLIN_SYMLINK_NAME" ]; then
+    rm -rv kotlinc
+fi
 ln -s `pwd`/$KOTLIN_DESTINATION_DIR $KOTLIN_SYMLINK_NAME
 
 echo "kotlin ${VERSION} has successfully installed"
