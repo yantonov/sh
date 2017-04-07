@@ -67,6 +67,7 @@ export MY_PATHS=(
     $DEVELOPMENT_SH/ubuntu
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-recall
+    $DEVELOPMENT_SH/nix/diff-so-fancy
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
