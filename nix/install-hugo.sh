@@ -20,33 +20,22 @@ then
     exit 1
 fi
 
-if [ $# -eq 0 ]; then
-    scr=`basename $0`
-    echo "Usage:"
-    echo "${scr} mac|linux - install to given platform"
-    echo "${scr} - show this help"
-    exit 0
-fi
-
 cd ~/Downloads
+mkdir -p $HUGO_DIR
 
-PLATFORM=$1
-
+PLATFORM=`uname`
 case "$PLATFORM" in
-    "mac")
+    "Darwin")
         DIST_URL="https://github.com/spf13/hugo/releases/download/v${VERSION}/hugo_${VERSION}_macOS-64bit.zip"
         TARGET_DIST_FILENAME="hugo-${VERSION}.zip"
         curl -L -o $TARGET_DIST_FILENAME $DIST_URL
-
-        unzip -d . $TARGET_DIST_FILENAME
-
+        unzip -d $HUGO_DIR $TARGET_DIST_FILENAME
         ;;
-    "linux")
+    "Linux")
         DIST_URL="https://github.com/spf13/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
         TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
         curl -L -o $TARGET_DIST_FILENAME $DIST_URL
-
-        tar xfv $TARGET_DIST_FILENAME
+        tar xfv $TARGET_DIST_FILENAME --directory $HUGO_DIR
         ;;
     *)
         echo "invalid platform"
@@ -59,8 +48,6 @@ if [ -z "${extracted_dir}" ]; then
     echo "cant find hugo dist"
     exit 1
 fi
-
-mv `basename $extracted_dir` $HUGO_DIR
 
 mkdir -p $TARGET_DIR
 mv $HUGO_DIR $TARGET_DIR
