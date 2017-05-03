@@ -7,7 +7,13 @@ cd ~/Downloads
 echo "detect latest kotlin version..."
 VERSION=`curl -s -L https://github.com/JetBrains/kotlin/releases/latest | grep -E 'kotlin-compiler-([-_.0-9]+).zip' | sed -E 's/.*\/kotlin-compiler-([-_.0-9]+)\.zip.*/\1/' | head -n 1`
 
+if [ -z "$VERSION" ]; then
+    echo "cant detect kotlin latest version"
+    exit 1
+fi
+
 echo "latest version is: $VERSION"
+
 
 KOTLIN_DIST_FILE_NAME="kotlin-compiler-${VERSION}.zip"
 KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${VERSION}/kotlin-compiler-${VERSION}.zip"
