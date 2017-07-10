@@ -34,6 +34,8 @@ export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
 export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
 export CABAL_HOME=$HOME/.cabal
 export STACK_HOME=$DEVELOPMENT_BIN/stack
+# hugo
+export HUGO_HOME=$DEVELOPMENT_BIN/hugo
 # jdk
 export JDK7_HOME=$DEVELOPMENT_BIN/jdk7
 export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
@@ -73,6 +75,7 @@ export MY_PATHS=(
     $CABAL_HOME/bin
     $EMACS_BIN_HOME/bin
     $ELASTICSEARCH_HOME/bin
+    $HUGO_HOME/bin
     $GO_HOME/bin
     $GOTMP_PATH/bin
     $GRADLE_HOME/bin
