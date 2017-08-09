@@ -54,6 +54,7 @@ export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
 export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
 export RACER_HOME=$DEVELOPMENT_BIN/racer
 export RACER_PATH=$RACER_HOME/target/release
+export RUST_HOME=$HOME/.cargo/
 # scala
 export SCALA_HOME=$DEVELOPMENT_BIN/scala
 export SBT_HOME=$DEVELOPMENT_BIN/sbt
@@ -87,6 +88,7 @@ export MY_PATHS=(
     $PHANTOMJS_HOME/bin
     $RACER_TMP_PATH
     $REBAR_HOME
+    $RUST_HOME/bin
     $SBT_HOME/bin
     $STACK_HOME
     $SCALA_HOME/bin
