@@ -22,7 +22,6 @@ alias gitrepos="cd $GIT_REPOS"
 alias svnrepos="cd $SVN_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
-alias gitr='cd `git root`'
 
 # [ editor ]
 alias ec='$EMACS_HOME/bin/ec.sh'
