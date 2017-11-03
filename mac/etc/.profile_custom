@@ -98,7 +98,9 @@ export MY_PATHS=(
     $CABAL_HOME/bin
     $DEVELOPMENT_SH/mac
     $DEVELOPMENT_SH/nix
+    $DEVELOPMENT_SH/nix/git-fire
     $DEVELOPMENT_SH/nix/git-recall
+    $DEVELOPMENT_SH/nix/diff-so-fancy
     $GIT_HOME
     $GHC_HOME/bin
     $GOROOT/bin
