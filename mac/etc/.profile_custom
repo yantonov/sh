@@ -114,8 +114,7 @@ export MY_PATHS=(
     $LEIN_BIN_HOME
     $LEIN_PLUGIN_ALIASES
     $M2_HOME/bin
-    # some troubles with manual installation, disabled temporarily
-    # $MERCURIAL_HOME
+    $MERCURIAL_HOME
     $MONGO_HOME/bin
     $OPAM_HOME/bin
     $PHANTOMJS_HOME/bin
