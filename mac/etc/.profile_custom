@@ -35,6 +35,8 @@ export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 
+# anaconda docker
+export ANACONDA_DOCKER_RUN_HOME=$GIT_REPOS/anaconda-docker-run
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
 # boot
@@ -93,6 +95,7 @@ export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 export MY_PATHS=(
+    $ANACONDA_DOCKER_RUN_HOME
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
