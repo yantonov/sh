@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LATEST_VERSION_PAGE="https://github.com/spf13/hugo/releases/latest"
+LATEST_VERSION_PAGE="https://github.com/gohugoio/hugo/releases/latest"
 LATEST_VERSION=`curl -s -L $LATEST_VERSION_PAGE | grep -E '.*hugo_[0-9.]+_Linux-64bit.tar.gz.*' | sed -E 's/.*hugo_([0-9.]+)_Linux-64bit.tar.gz.*/\1/' | head -n 1 || echo ""`
 
 if [ -z "$LATEST_VERSION" ]; then
@@ -26,22 +26,20 @@ mkdir -p $HUGO_DIR
 PLATFORM=`uname`
 case "$PLATFORM" in
     "Darwin")
-        DIST_URL="https://github.com/spf13/hugo/releases/download/v${VERSION}/hugo_${VERSION}_macOS-64bit.zip"
-        TARGET_DIST_FILENAME="hugo-${VERSION}.zip"
-        curl -L -o $TARGET_DIST_FILENAME $DIST_URL
-        unzip -d $HUGO_DIR $TARGET_DIST_FILENAME
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_macOS-64bit.tar.gz"
         ;;
     "Linux")
-        DIST_URL="https://github.com/spf13/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
-        TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
-        curl -L -o $TARGET_DIST_FILENAME $DIST_URL
-        tar xfv $TARGET_DIST_FILENAME --directory $HUGO_DIR
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
         ;;
     *)
         echo "invalid platform"
         exit 1
         ;;
 esac
+
+TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
+curl -L -o $TARGET_DIST_FILENAME $DIST_URL
+tar xfv $TARGET_DIST_FILENAME --directory $HUGO_DIR
 
 extracted_dir=`find . -type d -name "hugo*" | head -n 1`
 if [ -z "${extracted_dir}" ]; then
