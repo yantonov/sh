@@ -1,8 +1,8 @@
 #!/bin/sh
 
-PLATFORM=`uname`
+PLATFORM="$(uname)"
 
-case "$PLATFORM" in
+case "${PLATFORM}" in
     Linux)
         OS="linux"
         ;;
@@ -15,37 +15,38 @@ case "$PLATFORM" in
         ;;
 esac
 
-LATEST_VERSION=`curl -s -L https://golang.org/dl/ | grep -E "go[0-9.]+.linux-amd64.tar.gz" | sed -E 's/.*go([0-9.]+)\.linux-amd64.tar.gz.*/\1/' | head -n 1`
+LATEST_VERSION=$(curl -s -L https://golang.org/dl/ | grep -E "go[0-9.]+.linux-amd64.tar.gz" | sed -E 's/.*go([0-9.]+)\.linux-amd64.tar.gz.*/\1/' | head -n 1)
 
 ARCH="amd64"
-VERSION=$LATEST_VERSION
-INSTALL_DIR=$HOME/Development/bin
-GO_DIR=go$VERSION
-GO_DIST_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
+VERSION="${LATEST_VERSION}"
+INSTALL_DIR="${HOME}/Development/bin"
+GO_DIR="go${VERSION}"
+GO_DIST_FILENAME="go${VERSION}.${OS}-${ARCH}.tar.gz"
 
-if [ -d "$INSTALL_DIR/$GO_DIR" ];
+if [ -d "${INSTALL_DIR}/${GO_DIR}" ];
 then
-    echo "go $VERSION is already installed"
+    echo "go ${VERSION} is already installed"
     exit 0
 fi
 
-echo "go lang $VERSION will be installed..."
+echo "go lang ${VERSION} will be installed..."
 
-cd ~/Downloads
-curl -O https://storage.googleapis.com/golang/$GO_DIST_FILENAME
-tar -xzf $GO_DIST_FILENAME
+cd "${HOME}/Downloads"
+curl -O "https://storage.googleapis.com/golang/${GO_DIST_FILENAME}"
+tar -xzf "${GO_DIST_FILENAME}"
 # delete existing dir
-rm -rfv $INSTALL_DIR/$GO_DIR
-mkdir -p $INSTALL_DIR/$GO_DIR
-mv go/* $INSTALL_DIR/$GO_DIR
+TARGET="${INSTALL_DIR}/${GO_DIR}"
+rm -rfv "${TARGET}"
+mkdir -p "${TARGET}"
+mv go/* "${TARGET}"
 rmdir go
-rm $GO_DIST_FILENAME
+rm "${GO_DIST_FILENAME}"
 
-cd $INSTALL_DIR
+cd "${INSTALL_DIR}"
 if [ -L "go" ];
 then
     echo "delete old symlink to go dist...";
     rm -fv go
 fi
 echo "create new symlink for go dist"
-ln -s `pwd`/go$VERSION go
+ln -s "$(pwd)/go${VERSION}" go
