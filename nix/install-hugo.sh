@@ -1,17 +1,17 @@
 #!/bin/sh
 
 LATEST_VERSION_PAGE="https://github.com/gohugoio/hugo/releases/latest"
-LATEST_VERSION=`curl -s -L $LATEST_VERSION_PAGE | grep -E '.*hugo_[0-9.]+_Linux-64bit.tar.gz.*' | sed -E 's/.*hugo_([0-9.]+)_Linux-64bit.tar.gz.*/\1/' | head -n 1 || echo ""`
+LATEST_VERSION=$(curl -s -L $LATEST_VERSION_PAGE | grep -E '.*hugo_[0-9.]+_Linux-64bit.tar.gz.*' | sed -E 's/.*hugo_([0-9.]+)_Linux-64bit.tar.gz.*/\1/' | head -n 1 || echo "")
 
-if [ -z "$LATEST_VERSION" ]; then
-    echo "cand detect latest version automarically from page $LATEST_VERSION_PAGE"
+if [ -z "${LATEST_VERSION}" ]; then
+    echo "cand detect latest version automarically from page ${LATEST_VERSION_PAGE}"
     exit -1
 fi
 
-echo "Latest version: $LATEST_VERSION"
+echo "Latest version: ${LATEST_VERSION}"
 
-VERSION=$LATEST_VERSION
-TARGET_DIR=~/Development/bin
+VERSION="${LATEST_VERSION}"
+TARGET_DIR="${HOME}/Development/bin"
 HUGO_DIR="hugo-${VERSION}"
 
 if [ -d "${TARGET_DIR}/${HUGO_DIR}" ];
@@ -20,11 +20,11 @@ then
     exit 1
 fi
 
-cd ~/Downloads
-mkdir -p $HUGO_DIR
+cd "${HOME}/Downloads"
+mkdir -p "${HUGO_DIR}"
 
-PLATFORM=`uname`
-case "$PLATFORM" in
+PLATFORM=$(uname)
+case "${PLATFORM}" in
     "Darwin")
         DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_macOS-64bit.tar.gz"
         ;;
@@ -38,36 +38,36 @@ case "$PLATFORM" in
 esac
 
 TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
-curl -L -o $TARGET_DIST_FILENAME $DIST_URL
-tar xfv $TARGET_DIST_FILENAME --directory $HUGO_DIR
+curl -L -o "${TARGET_DIST_FILENAME}" "${DIST_URL}"
+tar xfv "${TARGET_DIST_FILENAME}" --directory "${HUGO_DIR}"
 
-extracted_dir=`find . -type d -name "hugo*" | head -n 1`
-if [ -z "${extracted_dir}" ]; then
+EXTRACTER_DIR=$(find . -type d -name "hugo*" | head -n 1)
+if [ -z "${EXTRACTER_DIR}" ]; then
     echo "cant find hugo dist"
     exit 1
 fi
 
-mkdir -p $TARGET_DIR
-mv $HUGO_DIR $TARGET_DIR
+mkdir -p "${TARGET_DIR}"
+mv "${HUGO_DIR}" "${TARGET_DIR}"
 
 # clean up
-rm $TARGET_DIST_FILENAME
+rm "${TARGET_DIST_FILENAME}"
 
-cd $TARGET_DIR
+cd "${TARGET_DIR}"
 if [ -L "hugo" ];
 then
     echo "delete old symlink to hugo dist...";
     rm -fv hugo
     echo "old symlink was deleted"
 fi
-cd $HUGO_DIR
+cd "${HUGO_DIR}"
 mkdir -p bin
-versioned_executable=`find . -type f -name "hugo*" | head -n 1`
-if [ -z "$versioned_executable" ]; then
+VERSIONED_EXECUTABLE=$(find . -type f -name "hugo*" | head -n 1)
+if [ -z "${VERSIONED_EXECUTABLE}" ]; then
     echo "cant find hugo executable"
     exit 1
 fi
-ln -s `pwd`/`basename $versioned_executable` bin/hugo
-ln -s `pwd` ../hugo
+ln -s "$(pwd)/$(basename \"${VERSIONED_EXECUTABLE})\"" "bin/hugo"
+ln -s "$(pwd)" ../hugo
 
 echo "hugo ${VERSION} has successfully installed :-)"
