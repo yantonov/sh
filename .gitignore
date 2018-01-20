@@ -5,3 +5,6 @@
 /nix/git-recall/
 /nix/diff-so-fancy/
 /nix/git-fire/
+
+# subrepositories
+/ubuntu/vpn/
