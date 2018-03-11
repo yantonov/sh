@@ -36,8 +36,8 @@ export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 
 # anaconda docker
-export ANACONDA_DOCKER_RUN_HOME=$GIT_REPOS/anaconda-docker-run/anaconda
-export ANACONDA_PYTHON2_DOCKER_RUN_HOME=$GIT_REPOS/anaconda-docker-run/anaconda-python2
+export JUPITER_PYTHON3_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker-run/python3
+export JUPITER_PYTHON2_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker-run/python2
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
 # boot
@@ -96,8 +96,8 @@ export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 export MY_PATHS=(
-    $ANACONDA_DOCKER_RUN_HOME
-    $ANACONDA_PYTHON2_DOCKER_RUN_HOME
+    $JUPITER_PYTHON3_DOCKER_RUN_HOME
+    $JUPITER_PYTHON2_DOCKER_RUN_HOME
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
