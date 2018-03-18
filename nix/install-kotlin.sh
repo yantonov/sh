@@ -1,7 +1,5 @@
 #!/bin/sh
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-
 cd ~/Downloads
 
 echo "detect latest kotlin version..."
@@ -24,12 +22,12 @@ KOTLIN_SYMLINK_NAME="kotlinc"
 
 if [ -d "${INSTALL_DIR}/${KOTLIN_DESTINATION_DIR}" ];
 then
-    echo "kotlin $VERSION is already installed"
+    echo "kotlin ${VERSION} is already installed"
     exit 0
 fi
 
 echo ""
-echo "kotlin $VERSION will be installed now..."
+echo "kotlin ${VERSION} will be installed now..."
 echo ""
 
 curl -L "${KOTLIN_DIST_URL}" -o "${KOTLIN_DIST_FILE_NAME}"
