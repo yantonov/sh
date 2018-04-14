@@ -44,6 +44,8 @@ export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JAVA_HOME=$DEVELOPMENT_BIN/jdk
 # idea
 export IDEA_HOME=$DEVELOPMENT_BIN/idea
+# keras
+export KERAS_HOME=$GIT_REPOS/keras-docker
 # kotlin
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # lein
@@ -87,6 +89,7 @@ export MY_PATHS=(
     $IDEA_HOME/bin
     $JAVA_HOME/bin
     $HASKELL_HOME/bin
+    $KERAS_HOME
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $LEIN_PLUGIN_ALIASES
