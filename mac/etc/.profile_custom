@@ -36,8 +36,8 @@ export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 
 # anaconda docker
-export JUPITER_PYTHON3_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker-run/python3
-export JUPITER_PYTHON2_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker-run/python2
+export JUPITER_PYTHON3_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker/python3
+export JUPITER_PYTHON2_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker/python2
 # ant
 export ANT_HOME=$DEVELOPMENT_BIN/ant
 # boot
