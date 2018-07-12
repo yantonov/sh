@@ -65,8 +65,8 @@ export HUGO_HOME=$DEVELOPMENT_BIN/hugo
 export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JDK_HOME=$DEVELOPMENT_BIN/jdk
 export JAVA_HOME=$JDK_HOME
-# keras
-export KERAS_HOME=$GIT_REPOS/keras-docker
+# dl
+export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # kotlin
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # julia
@@ -117,7 +117,7 @@ export MY_PATHS=(
     $HUGO_HOME/bin
     $JAVA_HOME/bin
     $JULIA_BIN_HOME/bin
-    $KERAS_HOME
+    $DL_CPU_DOCKER_HOME
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $LEIN_PLUGIN_ALIASES
