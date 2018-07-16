@@ -7,8 +7,8 @@ export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
 
 # anaconda docker
-export JUPITER_PYTHON3_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker/python3
-export JUPITER_PYTHON2_DOCKER_RUN_HOME=$GIT_REPOS/jupiter-docker/python2
+export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker/python3
+export ML_PYTHON2_DOCKER_HOME=$GIT_REPOS/ml-docker/python2
 
 # deployment
 export ANT_HOME=$DEVELOPMENT_BIN/ant
@@ -21,6 +21,8 @@ export ANDROID_SDK=$ANDROID_HOME/sdk
 export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
 # boot
 export BOOT_HOME=$DEVELOPMENT_BIN/boot
+# dl
+export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # emacs binary
 export EMACS_HOME=$HOME/emacs
 export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
@@ -76,8 +78,10 @@ export MY_PATHS=(
     $DEVELOPMENT_SH/nix/git-fire
     $DEVELOPMENT_SH/nix/git-recall
     $DEVELOPMENT_SH/nix/diff-so-fancy
-    $JUPITER_PYTHON3_DOCKER_RUN_HOME
-    $JUPITER_PYTHON2_DOCKER_RUN_HOME
+    $ML_PYTHON3_DOCKER_HOME
+    $ML_PYTHON2_DOCKER_HOME
+    $DL_CPU_DOCKER_HOME
+
     $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin

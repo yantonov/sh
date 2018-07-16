@@ -42,6 +42,8 @@ export ML_PYTHON2_DOCKER_HOME=$GIT_REPOS/ml-docker/python2
 export ANT_HOME=$DEVELOPMENT_BIN/ant
 # boot
 export BOOT_HOME=$DEVELOPMENT_BIN/boot
+# dl
+export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # elastic
 export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
 # git
@@ -65,8 +67,6 @@ export HUGO_HOME=$DEVELOPMENT_BIN/hugo
 export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JDK_HOME=$DEVELOPMENT_BIN/jdk
 export JAVA_HOME=$JDK_HOME
-# dl
-export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # kotlin
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # julia
@@ -98,16 +98,18 @@ export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 export MY_PATHS=(
-    $ML_PYTHON3_DOCKER_HOME
-    $ML_PYTHON2_DOCKER_HOME
-    $ANT_HOME/bin
-    $BOOT_HOME/bin
-    $CABAL_HOME/bin
     $DEVELOPMENT_SH/mac
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-fire
     $DEVELOPMENT_SH/nix/git-recall
     $DEVELOPMENT_SH/nix/diff-so-fancy
+    $ML_PYTHON3_DOCKER_HOME
+    $ML_PYTHON2_DOCKER_HOME
+    $DL_CPU_DOCKER_HOME
+
+    $ANT_HOME/bin
+    $BOOT_HOME/bin
+    $CABAL_HOME/bin
     $GIT_HOME
     $GHC_HOME/bin
     $GOROOT/bin
@@ -117,7 +119,6 @@ export MY_PATHS=(
     $HUGO_HOME/bin
     $JAVA_HOME/bin
     $JULIA_BIN_HOME/bin
-    $DL_CPU_DOCKER_HOME
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $LEIN_PLUGIN_ALIASES
