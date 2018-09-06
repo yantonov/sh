@@ -7,4 +7,4 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-ps -ef | grep $1 | tr -s ' ' | cut -d ' ' -f 2,8-
+ps -ef | grep $1 | grep -v 'grep' | awk '{print $2, $8, $9}'
