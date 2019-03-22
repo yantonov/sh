@@ -58,6 +58,8 @@ export MONGODB_HOME=$DEVELOPMENT_BIN/mongodb
 export MONGODB_DATA=$MONGODB_HOME/data
 # phantomjs
 export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
+# pytorch
+export PYTORCH_DOCKER_HOME=$GIT_REPOS/pytorch-docker
 # rust
 export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
 export RACER_HOME=$DEVELOPMENT_BIN/racer
@@ -100,6 +102,7 @@ export MY_PATHS=(
     $M2_HOME/bin
     $MONGODB_HOME
     $PHANTOMJS_HOME/bin
+    $PYTORCH_DOCKER_HOME
     $RACER_TMP_PATH
     $REBAR_HOME
     $RUST_HOME/bin
