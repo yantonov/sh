@@ -7,8 +7,7 @@ export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
 
 # anaconda docker
-export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker/python3
-export ML_PYTHON2_DOCKER_HOME=$GIT_REPOS/ml-docker/python2
+export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker
 
 # deployment
 export ANT_HOME=$DEVELOPMENT_BIN/ant
@@ -81,7 +80,6 @@ export MY_PATHS=(
     $DEVELOPMENT_SH/nix/git-recall
     $DEVELOPMENT_SH/nix/diff-so-fancy
     $ML_PYTHON3_DOCKER_HOME
-    $ML_PYTHON2_DOCKER_HOME
     $DL_CPU_DOCKER_HOME
 
     $ANT_HOME/bin
