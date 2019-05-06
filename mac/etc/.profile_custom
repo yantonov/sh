@@ -27,6 +27,8 @@ alias .....='cd ../../../..'
 alias dockerpsn='docker ps --format="{{.Names}}"'
 alias dockerpsn1='dockerpsn | head -n 1'
 alias flush_dns='sudo killall -HUP mDNSResponder'
+alias dangling_images='docker images -f "dangling=true" -q'
+alias stopped_containers='docker ps -f "status=exited" -q'
 
 # common
 export DEVELOPMENT_HOME=$HOME/Development
@@ -34,6 +36,12 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
+
+alias hgrepos="cd $HG_REPOS"
+alias gitrepos="cd $GIT_REPOS"
+alias devbin="cd $DEVELOPMENT_BIN"
+alias devsh="cd $DEVELOPMENT_SH"
+alias gitr='cd $(git root)'
 
 # anaconda docker
 export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker/
@@ -168,13 +176,3 @@ export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
     export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi
-
-# bash aliases
-# [ aliases ]
-# [ development ]
-# development hg repositories
-alias hgrepos="cd $HG_REPOS"
-alias gitrepos="cd $GIT_REPOS"
-alias devbin="cd $DEVELOPMENT_BIN"
-alias devsh="cd $DEVELOPMENT_SH"
-alias gitr='cd `git root`'
