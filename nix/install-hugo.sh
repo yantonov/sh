@@ -67,7 +67,7 @@ if [ -z "${VERSIONED_EXECUTABLE}" ]; then
     echo "cant find hugo executable"
     exit 1
 fi
-ln -s "$(pwd)/$(basename \"${VERSIONED_EXECUTABLE})\"" "bin/hugo"
+ln -s "$(pwd)/$(basename "${VERSIONED_EXECUTABLE}")" "bin/hugo"
 ln -s "$(pwd)" ../hugo
 
 echo "hugo ${VERSION} has successfully installed :-)"
