@@ -8,4 +8,4 @@ if [ -z "${NEW_TTL_VALUE}" ]; then
 fi
 
 echo "Set TTL value to:"
-sudo sysctl net.ipv4.ip_default_ttl="${NEW_TTL_VALUE}"
+echo "${NEW_TTL_VALUE}" | sudo tee /proc/sys/net/ipv4/ip_default_ttl
