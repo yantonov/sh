@@ -174,5 +174,5 @@ function not_in_path {
 export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 # patch PATH for terminal programs
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
-    export PATH=$MY_ADDITIONAL_PATHS:$PATH
+    export PATH=.:$MY_ADDITIONAL_PATHS:$PATH
 fi
