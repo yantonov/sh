@@ -108,7 +108,6 @@ export MY_PATHS=(
     $STACK_HOME
     $SCALA_HOME/bin
     $SPARK_HOME/bin
-    "."
 )
 
 function join {

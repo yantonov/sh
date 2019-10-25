@@ -144,7 +144,6 @@ export MY_PATHS=(
     $VISUAL_VM_HOME/bin
     $WGET_HOME/bin
     $HOME/.local/bin
-    .
 )
 
 function join {
