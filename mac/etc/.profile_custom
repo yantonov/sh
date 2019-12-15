@@ -45,8 +45,6 @@ alias gitr='cd $(git root)'
 
 # anaconda docker
 export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker/
-# ant
-export ANT_HOME=$DEVELOPMENT_BIN/ant
 # boot
 export BOOT_HOME=$DEVELOPMENT_BIN/boot
 # dl
@@ -115,7 +113,6 @@ export MY_PATHS=(
     $ML_PYTHON3_DOCKER_HOME
     $DL_CPU_DOCKER_HOME
 
-    $ANT_HOME/bin
     $BOOT_HOME/bin
     $CABAL_HOME/bin
     $GIT_HOME
