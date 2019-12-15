@@ -86,8 +86,6 @@ export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
 export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
 # maven
 export M2_HOME=$DEVELOPMENT_BIN/maven
-# mongo
-export MONGO_HOME=$DEVELOPMENT_BIN/mongo
 # ocaml
 export OPAM_HOME=$DEVELOPMENT_BIN/opam
 # phantomjs
@@ -129,7 +127,6 @@ export MY_PATHS=(
     $LEIN_PLUGIN_ALIASES
     $M2_HOME/bin
     $MERCURIAL_HOME
-    $MONGO_HOME/bin
     $OPAM_HOME/bin
     $PHANTOMJS_HOME/bin
     $PYTORCH_DOCKER_HOME

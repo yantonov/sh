@@ -24,8 +24,6 @@ export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # emacs binary
 export EMACS_HOME=$HOME/emacs
 export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
-# erlang
-export REBAR_HOME=$DEVELOPMENT_BIN/rebar
 # elasticsearch
 export ELASTICSEARCH_HOME=$DEVELOPMENT_BIN/elastic
 # golang
@@ -44,16 +42,11 @@ export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
 export JAVA_HOME=$DEVELOPMENT_BIN/jdk
 # idea
 export IDEA_HOME=$DEVELOPMENT_BIN/idea
-# keras
-export KERAS_HOME=$GIT_REPOS/keras-docker
 # kotlin
 export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
 # lein
 export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
 export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
-# mongo
-export MONGODB_HOME=$DEVELOPMENT_BIN/mongodb
-export MONGODB_DATA=$MONGODB_HOME/data
 # phantomjs
 export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
 # pytorch
@@ -91,16 +84,13 @@ export MY_PATHS=(
     $IDEA_HOME/bin
     $JAVA_HOME/bin
     $HASKELL_HOME/bin
-    $KERAS_HOME
     $KOTLIN_HOME/bin
     $LEIN_BIN_HOME
     $LEIN_PLUGIN_ALIASES
     $M2_HOME/bin
-    $MONGODB_HOME
     $PHANTOMJS_HOME/bin
     $PYTORCH_DOCKER_HOME
     $RACER_TMP_PATH
-    $REBAR_HOME
     $RUST_HOME/bin
     $SBT_HOME/bin
     $STACK_HOME
