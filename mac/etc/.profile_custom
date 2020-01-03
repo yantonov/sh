@@ -51,6 +51,8 @@ export BOOT_HOME=$DEVELOPMENT_BIN/boot
 export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
 # elastic
 export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
+# emacs
+export EMACS_TOOLS="${HOME}/emacs/bin/tools/diff"
 # git
 export GIT_HOME=/usr/local/git/bin
 # go lang
@@ -113,6 +115,7 @@ export MY_PATHS=(
 
     $BOOT_HOME/bin
     $CABAL_HOME/bin
+    $EMACS_TOOLS
     $GIT_HOME
     $GHC_HOME/bin
     $GOROOT/bin
