@@ -105,6 +105,8 @@ export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 export MY_PATHS=(
+    $HOME/bin
+
     $DEVELOPMENT_SH/mac
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-fire
