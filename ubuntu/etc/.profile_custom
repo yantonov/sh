@@ -55,7 +55,7 @@ export PYTORCH_DOCKER_HOME=$GIT_REPOS/pytorch-docker
 export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
 export RACER_HOME=$DEVELOPMENT_BIN/racer
 export RACER_PATH=$RACER_HOME/target/release
-export RUST_HOME=$HOME/.cargo/
+export RUST_HOME="$HOME/.cargo"
 # scala
 export SCALA_HOME=$DEVELOPMENT_BIN/scala
 export SBT_HOME=$DEVELOPMENT_BIN/sbt
