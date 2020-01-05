@@ -66,6 +66,8 @@ export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
 
 # path
 export MY_PATHS=(
+    $HOME/bin
+
     $DEVELOPMENT_SH/ubuntu
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-fire

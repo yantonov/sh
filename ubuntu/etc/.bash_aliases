@@ -43,3 +43,6 @@ alias fuck='sudo $(fc -ln -1)'
 # [ docker ]
 alias dangling_images='docker images -f "dangling=true" -q'
 alias stopped_containers='docker ps -f "status=exited" -q'
+
+# [tools]
+alias cat='bat'
