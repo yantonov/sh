@@ -17,4 +17,5 @@ git clone https://github.com/sharkdp/bat.git
 cd bat
 cargo build --release
 
+mkdir -p "${BIN_DIR}"
 ln -s "${SOURCE_DIR}/bat/target/release/bat" "${BIN_DIR}/bat"
