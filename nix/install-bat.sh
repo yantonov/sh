@@ -15,6 +15,8 @@ fi
 git clone https://github.com/sharkdp/bat.git
 
 cd bat
+# for ubuntu
+# apt-get install libclang-dev
 cargo build --release
 
 mkdir -p "${BIN_DIR}"
