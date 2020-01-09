@@ -29,7 +29,6 @@ alias dockerpsn1='dockerpsn | head -n 1'
 alias flush_dns='sudo killall -HUP mDNSResponder'
 alias dangling_images='docker images -f "dangling=true" -q'
 alias stopped_containers='docker ps -f "status=exited" -q'
-alias cat='bat'
 
 # common
 export DEVELOPMENT_HOME=$HOME/Development
