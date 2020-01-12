@@ -104,9 +104,27 @@ export VISUAL_VM_HOME=$DEVELOPMENT_BIN/visualvm
 export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
-export MY_PATHS=(
+MY_PATHS=(
     $HOME/bin
+)
 
+# add all directories and directories referenced by symlinks
+MY_PATHS+=($(find ${HOME}/bin -maxdepth 1 ! -path ${HOME}/bin -print0 | while IFS= read -r -d $'\0' file; do
+                 if [ -L "$file" ]; then
+                     real_path=$(readlink $file)
+                     if test -e "$real_path"; then
+                         if [ -d "$real_path" ]; then
+                             echo "$real_path"
+                         fi
+                     fi
+                 else
+                     if [ -d "$file" ]; then
+                         echo "$file"
+                     fi
+                 fi
+             done))
+
+MY_PATHS+=(
     $DEVELOPMENT_SH/mac
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-fire
