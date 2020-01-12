@@ -43,69 +43,18 @@ alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
 alias gitr='cd $(git root)'
 
-# anaconda docker
-export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker/
-# boot
-export BOOT_HOME=$DEVELOPMENT_BIN/boot
-# dl
-export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
-# elastic
-export ES_HOME=$DEVELOPMENT_BIN/elasticsearch
-# emacs
-export EMACS_TOOLS="${HOME}/emacs/bin/tools/diff"
-# git
-export GIT_HOME=/usr/local/git/bin
 # go lang
 export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
-# groovy
-export GROOVY_HOME=$DEVELOPMENT_BIN/groovy
-# gradle
-export GRADLE_HOME=$DEVELOPMENT_BIN/gradle
-# haskell
-export GHC_HOME=$DEVELOPMENT_BIN/ghc
-export CABAL_HOME=$HOME/.cabal
-export STACK_HOME=$DEVELOPMENT_BIN/stack
-# hg
-export MERCURIAL_HOME=$DEVELOPMENT_BIN/mercurial
-# hugo
-export HUGO_HOME=$DEVELOPMENT_BIN/hugo
-# jdk
-export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
-export JDK_HOME=$DEVELOPMENT_BIN/jdk
-export JAVA_HOME=$JDK_HOME
-# kotlin
-export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
-# julia
-export JULIA_BIN_HOME=$DEVELOPMENT_BIN/julia
-# scala
-export SCALA_HOME=$DEVELOPMENT_BIN/scala
-export SBT_HOME=$DEVELOPMENT_BIN/sbt
-# spark
-export SPARK_HOME=$DEVELOPMENT_BIN/spark
-# leiningen
-export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
-export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
-# maven
-export M2_HOME=$DEVELOPMENT_BIN/maven
-# ocaml
-export OPAM_HOME=$DEVELOPMENT_BIN/opam
-# phantomjs
-export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
-# pytorch
-export PYTORCH_DOCKER_HOME=$GIT_REPOS/pytorch-docker
-# rust
-export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
-export RACER_HOME=$DEVELOPMENT_BIN/racer
-export RACER_PATH=$RACER_HOME/target/release
-# visual vm
-export VISUAL_VM_HOME=$DEVELOPMENT_BIN/visualvm
-# wget
-export WGET_HOME=$DEVELOPMENT_BIN/wget
 
 # path
 MY_PATHS=(
     $HOME/bin
+    $DEVELOPMENT_SH/mac
+    $DEVELOPMENT_SH/nix
+    $DEVELOPMENT_SH/nix/git-fire
+    $DEVELOPMENT_SH/nix/git-recall
+    $DEVELOPMENT_SH/nix/diff-so-fancy
 )
 
 # add all directories and directories referenced by symlinks
@@ -123,45 +72,6 @@ MY_PATHS+=($(find ${HOME}/bin -maxdepth 1 ! -path ${HOME}/bin -print0 | while IF
                      fi
                  fi
              done))
-
-MY_PATHS+=(
-    $DEVELOPMENT_SH/mac
-    $DEVELOPMENT_SH/nix
-    $DEVELOPMENT_SH/nix/git-fire
-    $DEVELOPMENT_SH/nix/git-recall
-    $DEVELOPMENT_SH/nix/diff-so-fancy
-    $ML_PYTHON3_DOCKER_HOME
-    $DL_CPU_DOCKER_HOME
-
-    $BOOT_HOME/bin
-    $CABAL_HOME/bin
-    $EMACS_TOOLS
-    $GIT_HOME
-    $GHC_HOME/bin
-    $GOROOT/bin
-    $GOPATH/bin
-    $GROOVY_HOME/bin
-    $GRADLE_HOME/bin
-    $HUGO_HOME/bin
-    $JAVA_HOME/bin
-    $JULIA_BIN_HOME/bin
-    $KOTLIN_HOME/bin
-    $LEIN_BIN_HOME
-    $LEIN_PLUGIN_ALIASES
-    $M2_HOME/bin
-    $MERCURIAL_HOME
-    $OPAM_HOME/bin
-    $PHANTOMJS_HOME/bin
-    $PYTORCH_DOCKER_HOME
-    $RACER_PATH
-    $SBT_HOME/bin
-    $SCALA_HOME/bin
-    $SPARK_HOME/bin
-    $STACK_HOME
-    $VISUAL_VM_HOME/bin
-    $WGET_HOME/bin
-    $HOME/.local/bin
-)
 
 function join {
     local IFS="$1"
@@ -187,7 +97,7 @@ function not_in_path {
     echo `join ":" "${not_used[@]}"`
 }
 
-export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
+MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 # patch PATH for terminal programs
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
     export PATH=$MY_ADDITIONAL_PATHS:$PATH
