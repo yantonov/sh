@@ -11,3 +11,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
+
+[[ -s "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
