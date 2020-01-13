@@ -6,99 +6,31 @@ export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
 
-# anaconda docker
-export ML_PYTHON3_DOCKER_HOME=$GIT_REPOS/ml-docker
-
-# deployment
-export M2_HOME=$DEVELOPMENT_BIN/maven
-export MAVEN_OPTS=" -Xms256m -Xmx512m"
-
-# android
-export ANDROID_HOME=$DEVELOPMENT_BIN/android
-export ANDROID_SDK=$ANDROID_HOME/sdk
-export ANDROID_ECLIPSE=$ANDROID_HOME/eclipse
-# boot
-export BOOT_HOME=$DEVELOPMENT_BIN/boot
-# dl
-export DL_CPU_DOCKER_HOME=$GIT_REPOS/dl-docker/cpu
-# emacs binary
-export EMACS_HOME=$HOME/emacs
-export EMACS_BIN_HOME=$DEVELOPMENT_BIN/emacs
-# elasticsearch
-export ELASTICSEARCH_HOME=$DEVELOPMENT_BIN/elastic
-# golang
-export GO_HOME=$DEVELOPMENT_BIN/go
-export GOPATH=$DEVELOPMENT_BIN/gopath
-export GOROOT=$GO_HOME
-# haskell
-export HASKELL_HOME=$DEVELOPMENT_BIN/ghc
-export CABAL_HOME=$HOME/.cabal
-export STACK_HOME=$DEVELOPMENT_BIN/stack
-# hugo
-export HUGO_HOME=$DEVELOPMENT_BIN/hugo
-# jdk
-export JDK7_HOME=$DEVELOPMENT_BIN/jdk7
-export JDK8_HOME=$DEVELOPMENT_BIN/jdk8
-export JAVA_HOME=$DEVELOPMENT_BIN/jdk
-# idea
-export IDEA_HOME=$DEVELOPMENT_BIN/idea
-# kotlin
-export KOTLIN_HOME=$DEVELOPMENT_BIN/kotlinc
-# lein
-export LEIN_BIN_HOME=$DEVELOPMENT_BIN/lein
-export LEIN_PLUGIN_ALIASES=$DEVELOPMENT_BIN/lein-aliases
-# phantomjs
-export PHANTOMJS_HOME=$DEVELOPMENT_BIN/phantomjs
-# pytorch
-export PYTORCH_DOCKER_HOME=$GIT_REPOS/pytorch-docker
-# rust
-export RUST_SRC_PATH=$GIT_REPOS/rust_src/src
-export RACER_HOME=$DEVELOPMENT_BIN/racer
-export RACER_PATH=$RACER_HOME/target/release
-export RUST_HOME="$HOME/.cargo"
-# scala
-export SCALA_HOME=$DEVELOPMENT_BIN/scala
-export SBT_HOME=$DEVELOPMENT_BIN/sbt
-# spark
-export SPARK_HOME=$DEVELOPMENT_BIN/spark
-# tomcat
-export CATALINA_HOME=$DEVELOPMENT_BIN/tomcat
-
 # path
-export MY_PATHS=(
+MY_PATHS=(
     $HOME/bin
-
     $DEVELOPMENT_SH/ubuntu
     $DEVELOPMENT_SH/nix
     $DEVELOPMENT_SH/nix/git-fire
     $DEVELOPMENT_SH/nix/git-recall
     $DEVELOPMENT_SH/nix/diff-so-fancy
-    $ML_PYTHON3_DOCKER_HOME
-    $DL_CPU_DOCKER_HOME
-
-    $BOOT_HOME/bin
-    $CABAL_HOME/bin
-    $EMACS_BIN_HOME/bin
-    $ELASTICSEARCH_HOME/bin
-    $HUGO_HOME/bin
-    $GO_HOME/bin
-    $GOTMP_PATH/bin
-    $IDEA_HOME/bin
-    $JAVA_HOME/bin
-    $HASKELL_HOME/bin
-    $KOTLIN_HOME/bin
-    $LEIN_BIN_HOME
-    $LEIN_PLUGIN_ALIASES
-    $M2_HOME/bin
-    $PHANTOMJS_HOME/bin
-    $PYTORCH_DOCKER_HOME
-    $RACER_TMP_PATH
-    $RUST_HOME/bin
-    $SBT_HOME/bin
-    $STACK_HOME
-    $SCALA_HOME/bin
-    $SPARK_HOME/bin
 )
+
+# add all directories and directories referenced by symlinks
+MY_PATHS+=($(find ${HOME}/bin -maxdepth 1 ! -path ${HOME}/bin -print0 | while IFS= read -r -d $'\0' file; do
+                 if [ -L "$file" ]; then
+                     real_path=$(readlink $file)
+                     if test -e "$real_path"; then
+                         if [ -d "$real_path" ]; then
+                             echo "$real_path"
+                         fi
+                     fi
+                 else
+                     if [ -d "$file" ]; then
+                         echo "$file"
+                     fi
+                 fi
+             done))
 
 function join {
     local IFS="$1"
