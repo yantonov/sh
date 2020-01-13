@@ -9,11 +9,6 @@ export SVN_REPOS=$DEVELOPMENT_HOME/svn
 # path
 MY_PATHS=(
     $HOME/bin
-    $DEVELOPMENT_SH/ubuntu
-    $DEVELOPMENT_SH/nix
-    $DEVELOPMENT_SH/nix/git-fire
-    $DEVELOPMENT_SH/nix/git-recall
-    $DEVELOPMENT_SH/nix/diff-so-fancy
 )
 
 # add all directories and directories referenced by symlinks
@@ -43,20 +38,19 @@ function not_in_path {
     shift
     my_paths="$@"
 
-    i=0
     declare -a not_used=()
 
     for p in ${my_paths[@]}
     do
-        if [[ $current_path != *$p* ]]; then
-            not_used[$i]="$p"
-            i=$((i + 1))
+        CHECK="$(echo $PATH | tr ':' '\n' | grep "$p" || echo "")"
+        if [ -z "${CHECK}" ]; then
+            not_used+=("$p")
         fi
     done
     echo `join ":" "${not_used[@]}"`
 }
 
-export MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
+MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
 if [ -n "$MY_ADDITIONAL_PATHS" ]; then
     export PATH=$MY_ADDITIONAL_PATHS:$PATH
 fi

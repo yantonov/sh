@@ -36,6 +36,7 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
+export HOME_BIN=$HOME/bin
 
 alias hgrepos="cd $HG_REPOS"
 alias gitrepos="cd $GIT_REPOS"
@@ -47,58 +48,26 @@ alias gitr='cd $(git root)'
 export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
-# path
-MY_PATHS=(
-    $HOME/bin
-    $DEVELOPMENT_SH/mac
-    $DEVELOPMENT_SH/nix
-    $DEVELOPMENT_SH/nix/git-fire
-    $DEVELOPMENT_SH/nix/git-recall
-    $DEVELOPMENT_SH/nix/diff-so-fancy
-)
-
-# add all directories and directories referenced by symlinks
-MY_PATHS+=($(find ${HOME}/bin -maxdepth 1 ! -path ${HOME}/bin -print0 | while IFS= read -r -d $'\0' file; do
-                 if [ -L "$file" ]; then
-                     real_path=$(readlink $file)
-                     if test -e "$real_path"; then
-                         if [ -d "$real_path" ]; then
-                             echo "$real_path"
-                         fi
-                     fi
-                 else
-                     if [ -d "$file" ]; then
-                         echo "$file"
-                     fi
-                 fi
-             done))
-
-function join {
-    local IFS="$1"
-    shift
-    echo "$*"
+function add_to_path {
+    path="$1"
+    CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$path$" || echo "")"
+    if [ -z "${CHECK}" ]; then
+        export PATH="${path}:${PATH}"
+    fi
 }
 
-function not_in_path {
-    current_path=$1
-    shift
-    my_paths=$@
-
-    i=0
-    declare -a not_used=()
-
-    for p in ${my_paths[@]}
-    do
-        if [[ $current_path != *$p* ]]; then
-            not_used[$i]="$p"
-            i=$((i + 1))
+PATHS=($(find ${HOME_BIN} -maxdepth 1))
+for file in ${PATHS[@]}; do
+    if [ -L "$file" ]; then
+        real_path=$(readlink $file)
+        if test -e "$real_path"; then
+            if [ -d "$real_path" ]; then
+                add_to_path $real_path
+            fi
         fi
-    done
-    echo `join ":" "${not_used[@]}"`
-}
-
-MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
-# patch PATH for terminal programs
-if [ -n "$MY_ADDITIONAL_PATHS" ]; then
-    export PATH=$MY_ADDITIONAL_PATHS:$PATH
-fi
+    else
+        if [ -d "$file" ]; then
+             add_to_path $file
+        fi
+    fi
+done
