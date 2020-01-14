@@ -5,52 +5,28 @@ export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export HG_REPOS=$DEVELOPMENT_HOME/hg
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
+export HOME_BIN=$HOME/bin
 
-# path
-MY_PATHS=(
-    $HOME/bin
-)
-
-# add all directories and directories referenced by symlinks
-MY_PATHS+=($(find ${HOME}/bin -maxdepth 1 ! -path ${HOME}/bin -print0 | while IFS= read -r -d $'\0' file; do
-                 if [ -L "$file" ]; then
-                     real_path=$(readlink $file)
-                     if test -e "$real_path"; then
-                         if [ -d "$real_path" ]; then
-                             echo "$real_path"
-                         fi
-                     fi
-                 else
-                     if [ -d "$file" ]; then
-                         echo "$file"
-                     fi
-                 fi
-             done))
-
-function join {
-    local IFS="$1"
-    shift
-    echo "$*"
+function add_to_path {
+    path="$1"
+    CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$path$" || echo "")"
+    if [ -z "${CHECK}" ]; then
+        export PATH="${path}:${PATH}"
+    fi
 }
 
-function not_in_path {
-    current_path=$1
-    shift
-    my_paths="$@"
-
-    declare -a not_used=()
-
-    for p in ${my_paths[@]}
-    do
-        CHECK="$(echo $PATH | tr ':' '\n' | grep "$p" || echo "")"
-        if [ -z "${CHECK}" ]; then
-            not_used+=("$p")
+PATHS=($(find ${HOME_BIN} -maxdepth 1))
+for file in ${PATHS[@]}; do
+    if [ -L "$file" ]; then
+        real_path=$(readlink $file)
+        if test -e "$real_path"; then
+            if [ -d "$real_path" ]; then
+                add_to_path $real_path
+            fi
         fi
-    done
-    echo `join ":" "${not_used[@]}"`
-}
-
-MY_ADDITIONAL_PATHS=`not_in_path $PATH "${MY_PATHS[@]}"`
-if [ -n "$MY_ADDITIONAL_PATHS" ]; then
-    export PATH=$MY_ADDITIONAL_PATHS:$PATH
-fi
+    else
+        if [ -d "$file" ]; then
+             add_to_path $file
+        fi
+    fi
+done
