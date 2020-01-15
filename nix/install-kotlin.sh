@@ -18,6 +18,7 @@ KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${VERSIO
 KOTLIN_EXTRACTED_DIR="kotlinc"
 KOTLIN_DESTINATION_DIR="kotlinc-${VERSION}"
 INSTALL_DIR=~/Development/bin
+BIN_DIR=~/bin
 KOTLIN_SYMLINK_NAME="kotlinc"
 
 if [ -d "${INSTALL_DIR}/${KOTLIN_DESTINATION_DIR}" ];
@@ -45,11 +46,11 @@ mv "${KOTLIN_EXTRACTED_DIR}" "${HOME}/Development/bin/${KOTLIN_DESTINATION_DIR}"
 
 rm -r "${KOTLIN_DIST_FILE_NAME}"
 
-cd "${INSTALL_DIR}"
+cd "${BIN_DIR}"
 
 if [ -L "${KOTLIN_SYMLINK_NAME}" ]; then
     rm -rv kotlinc
 fi
-ln -s "$(pwd)/${KOTLIN_DESTINATION_DIR}" "${KOTLIN_SYMLINK_NAME}"
+ln -s "$INSTALL_DIR/${KOTLIN_DESTINATION_DIR}" "${KOTLIN_SYMLINK_NAME}"
 
 echo "kotlin ${VERSION} has successfully installed"
