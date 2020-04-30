@@ -16,17 +16,19 @@ enable-touchpad.sh - enable touchpad
 
 disable-touchpad.sh - disable touchpad
 
+wifi-up.sh - enable connection through network manager (usefull for hidden wifi networks)
+
 #### mac os
 
 emacs - script to run gui emacs on mac os
 
 marks.sh - tools to quick nativate in filesystem
 
-wifi-up.sh - connect to hidden network by sid
-
 uninstall-pkg.sh - uninstall given pkg files (in some case you do not have uninstaller)
 
 #### nix (common unix)
 
 pid-by-ports.sh - list of listening ports with pids
+
+install-xxxx.sh - installation scripts
 
