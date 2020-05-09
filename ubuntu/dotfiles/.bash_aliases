@@ -19,12 +19,6 @@ alias es="$HOME/emacs/bin/es.sh"
 # [ sudo ]
 alias fuck='sudo $(fc -ln -1)'
 
-# [ docker ]
-alias dockerpsn='docker ps --format="{{.Names}}"'
-alias dockerpsn1='dockerpsn | head -n 1'
-alias dangling_images='docker images -f "dangling=true" -q'
-alias stopped_containers='docker ps -f "status=exited" -q'
-
 # ls
 ## Colorize the ls output ##
 alias ls='ls --color=auto'
