@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if [ -z "$GIT_REPOS" ]; then
-    echo "GIT_REPOS env var is undefined"
+if [ -z "$HOME_BIN" ]; then
+    echo "HOME_BIN env var is undefined"
     exit 1
 fi
 
-cd "${GIT_REPOS}"
+cd "${HOME_BIN}"
 
 APP_NAME="git-fire"
 
@@ -14,9 +14,5 @@ if [ -d "${APP_NAME}" ]; then
     exit 1
 fi
 
-git clone https://github.com/qw3rtman/git-fire.git $APP_NAME
+git clone https://github.com/qw3rtman/git-fire.git "${APP_NAME}"
 chmod +x ${APP_NAME}/git-fire
-
-mkdir -p "${HOME}/bin"
-cd "${HOME}/bin"
-ln -s "${GIT_REPOS}/${APP_NAME}" ${APP_NAME}
