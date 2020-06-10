@@ -2,8 +2,6 @@
 # .profile contains following line
 # source ~/.profile_custom
 
-export PS1="\u@\h:\w>"
-
 # python problem
 # ValueError: unknown locale: UTF-8
 # http://stackoverflow.com/questions/15526996/ipython-notebook-locale-error
@@ -27,10 +25,10 @@ export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
 function add_to_path {
-    path="$1"
-    CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$path$" || echo "")"
+    tmp_path="$1"
+    CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$tmp_path$" || echo "")"
     if [ -z "${CHECK}" ]; then
-        export PATH="${path}:${PATH}"
+        export PATH="${tmp_path}:${PATH}"
     fi
 }
 
