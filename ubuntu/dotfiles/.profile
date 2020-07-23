@@ -22,12 +22,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 if [ -f "$HOME/.profile_common" ]; then
-then
     source $HOME/.profile_common
 fi
 
 if [ -f "$HOME/.profile_custom" ]; then
-then
     source $HOME/.profile_custom
 fi
 
