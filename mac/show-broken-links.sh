@@ -2,5 +2,4 @@
 
 # list broken symlinks for the current directory
 
-find -L . -type l -ls
-
+find . -type l ! -exec test -e {} \; -print
