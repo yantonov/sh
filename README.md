@@ -24,6 +24,8 @@ emacs - script to run gui emacs on mac os
 
 marks.sh - tools to quick nativate in filesystem
 
+show-broken-links.sh - list of broken symlinks at the current directory
+
 uninstall-pkg.sh - uninstall given pkg files (in some case you do not have uninstaller)
 
 #### nix (common unix)
