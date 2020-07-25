@@ -3,6 +3,7 @@ set -eu
 
 BIN_DIR="${HOME}/bin"
 SOURCE_DIR="${HOME}/Development/bin"
+URL="https://github.com/sharkdp/bat.git"
 
 mkdir -p "${SOURCE_DIR}"
 
@@ -14,7 +15,7 @@ if [ -d "${APP_NAME}" ]; then
 fi
 
 cd "${SOURCE_DIR}"
-git clone https://github.com/sharkdp/bat.git ${APP_NAME}
+git clone "${URL}" "${APP_NAME}"
 
 cd ${APP_NAME}
 # for ubuntu
@@ -22,4 +23,4 @@ cd ${APP_NAME}
 cargo build --release
 
 mkdir -p "${BIN_DIR}"
-ln -s "${SOURCE_DIR}/bat/target/release/bat" "${BIN_DIR}/${APP_NAME}"
+ln -s "${SOURCE_DIR}/${APP_NAME}/target/release/${APP_NAME}" "${BIN_DIR}/${APP_NAME}"
