@@ -5,7 +5,6 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # [ development ]
-alias hgrepos="cd $HG_REPOS"
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
