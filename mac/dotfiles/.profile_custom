@@ -31,7 +31,7 @@ function add_to_path {
     fi
 }
 
-PATHS=($(find ${HOME_BIN} -maxdepth 1))
+PATHS=($(find ${HOME_BIN} -maxdepth 1 | sort))
 for file in ${PATHS[@]}; do
     if [ -L "$file" ]; then
         real_path=$(readlink $file)
