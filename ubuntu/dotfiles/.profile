@@ -29,4 +29,8 @@ if [ -f "$HOME/.profile_custom" ]; then
     source $HOME/.profile_custom
 fi
 
+if [ -f "$HOME/.profile_ssh" ]; then
+    source $HOME/.profile_ssh
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
