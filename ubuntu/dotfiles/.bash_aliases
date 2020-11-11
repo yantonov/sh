@@ -19,7 +19,5 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'
-# make parent directory if needed
-alias mkdir='mkdir -pv'
 ## colorize the grep
 alias grep='grep --color=auto '
