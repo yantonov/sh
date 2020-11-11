@@ -17,7 +17,5 @@ alias fuck='sudo $(fc -ln -1)'
 alias ls='ls --color=auto'
 ## Use a long listing format ##
 alias ll='ls -la'
-## Show hidden files ##
-alias l.='ls -d .* --color=auto'
 ## colorize the grep
 alias grep='grep --color=auto '
