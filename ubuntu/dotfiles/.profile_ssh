@@ -1,6 +1,5 @@
 function my_pgrep {
-    if command -v pgrep
-    then
+    if [ -z "$(command -v pgrep)" ]; then
         # at some cases, for example inside git bash, prep is missing,
         # that is why this workaround is needed
         pgrep $1
@@ -8,6 +7,8 @@ function my_pgrep {
         ps -ef | grep $1 | grep -v grep | awk '{print $2}'
     fi
 }
+
+echo $(my_pgrep ssh-agent)
 
 if [ -z "$(my_pgrep ssh-agent)" ]; then
     rm -rf /tmp/ssh-*
