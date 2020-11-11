@@ -25,6 +25,10 @@ if [ -f "$HOME/.profile_common" ]; then
     . $HOME/.profile_common
 fi
 
+if [ -f "$HOME/.profile_common" ]; then
+    . $HOME/.profile_aliases
+fi
+
 if [ -f "$HOME/.profile_custom" ]; then
     . $HOME/.profile_custom
 fi
