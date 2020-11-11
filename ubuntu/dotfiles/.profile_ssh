@@ -1,8 +1,18 @@
-if [ -z "$(pgrep ssh-agent)" ]; then
-   rm -rf /tmp/ssh-*
-   eval $(ssh-agent -s) > /dev/null
-else
-   export SSH_AGENT_PID=$(pgrep ssh-agent)
-   export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
-fi
+function my_pgrep {
+    if command -v pgrep
+    then
+        # at some cases, for example inside git bash, prep is missing,
+        # that is why this workaround is needed
+        pgrep $1
+    else
+        ps -ef | grep $1 | grep -v grep | awk '{print $2}'
+    fi
+}
 
+if [ -z "$(my_pgrep ssh-agent)" ]; then
+    rm -rf /tmp/ssh-*
+    eval $(ssh-agent -s) > /dev/null
+else
+    export SSH_AGENT_PID=$(my_pgrep ssh-agent)
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
+fi
