@@ -23,8 +23,3 @@ alias l.='ls -d .* --color=auto'
 alias mkdir='mkdir -pv'
 ## colorize the grep
 alias grep='grep --color=auto '
-
-# [ security ]
-alias ipt-allow="sudo /etc/init.d/yantonov-allow-all-iptables.sh"
-alias ipt-deny="sudo /etc/init.d/yantonov-deny-all-iptables.sh"
-alias ipt-enable-h="sudo /etc/init.d/yantonov-enable-h-iptables.sh"
