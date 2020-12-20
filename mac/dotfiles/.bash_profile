@@ -13,7 +13,7 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
 [[ -s "$HOME/.profile_alias_common" ]] && source "$HOME/.profile_alias_common"
-[[ -s "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
+[[ -s "$HOME/.profile_alias_os" ]] && source "$HOME/.profile_alias_os"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
