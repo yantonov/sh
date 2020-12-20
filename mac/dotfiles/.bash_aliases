@@ -8,7 +8,6 @@ alias .....='cd ../../../..'
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
-alias gitr='cd $(git root)'
 
 # [ sudo ]
 alias fuck='sudo $(fc -ln -1)'
