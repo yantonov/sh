@@ -8,3 +8,6 @@ alias .....='cd ../../../..'
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
+
+# path
+alias paths="echo $PATH | tr ':' '\n'"
