@@ -12,6 +12,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
+[[ -s "$HOME/.profile_alias_common" ]] && source "$HOME/.profile_alias_common"
 [[ -s "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
 if command -v pyenv 1>/dev/null 2>&1; then
