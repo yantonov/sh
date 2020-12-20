@@ -19,6 +19,3 @@ alias ls='ls -G '
 alias ll='ls -la '
 ## Show hidden files ##
 alias l.='ls -d .* -G '
-
-# tools
-alias flush_dns='sudo killall -HUP mDNSResponder'
