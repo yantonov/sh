@@ -1,4 +1,5 @@
-source $HOME/.profile_custom
+[[ -s "$HOME/.profile_colors" ]] && source "$HOME/.profile_colors"
+[[ -s "$HOME/.profile_custom" ]] && source "$HOME/.profile_custom"
 
 # OPAM configuration
 . /Users/yantonov/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

@@ -21,6 +21,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+if [ -f "$HOME/.profile_colors" ]; then
+    . $HOME/.profile_colors
+fi
+
 if [ -f "$HOME/.profile_common" ]; then
     . $HOME/.profile_common
 fi
