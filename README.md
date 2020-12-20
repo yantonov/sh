@@ -1,4 +1,4 @@
-### some usefull shell scripts
+### some useful shell scripts and settings
 
 #### ubuntu
 
