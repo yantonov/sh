@@ -29,7 +29,7 @@ if [ -f "$HOME/.profile_common" ]; then
     . $HOME/.profile_common
 fi
 
-if [ -f "$HOME/.profile_common" ]; then
+if [ -f "$HOME/.profile_aliases" ]; then
     . $HOME/.profile_aliases
 fi
 
