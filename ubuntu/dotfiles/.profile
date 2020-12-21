@@ -25,20 +25,24 @@ if [ -f "$HOME/.profile_colors" ]; then
     . $HOME/.profile_colors
 fi
 
-if [ -f "$HOME/.profile_common" ]; then
-    . $HOME/.profile_common
+if [ -f "$HOME/.profile_path" ]; then
+    . $HOME/.profile_path
 fi
 
-if [ -f "$HOME/.profile_aliases" ]; then
-    . $HOME/.profile_aliases
+if [ -f "$HOME/.profile_alias_common" ]; then
+    . $HOME/.profile_alias_common
 fi
 
-if [ -f "$HOME/.profile_custom" ]; then
-    . $HOME/.profile_custom
+if [ -f "$HOME/.profile_alias_os" ]; then
+    . $HOME/.profile_alias_os
 fi
 
 if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
+fi
+
+if [ -f "$HOME/.profile_custom" ]; then
+    . $HOME/.profile_custom
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"

@@ -6,3 +6,4 @@
 [[ -s "$HOME/.profile_path" ]] && source "$HOME/.profile_path"
 [[ -s "$HOME/.profile_alias_common" ]] && source "$HOME/.profile_alias_common"
 [[ -s "$HOME/.profile_alias_os" ]] && source "$HOME/.profile_alias_os"
+[[ -s "$HOME/.profile_custom" ]] && source "$HOME/.profile_custom"
