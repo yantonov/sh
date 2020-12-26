@@ -7,3 +7,6 @@ alias ls='ls -G '
 alias ll='ls -la '
 ## Show hidden files ##
 alias l.='ls -d .* -G '
+
+# reload
+alias reloaddot='source .bash_profile'
