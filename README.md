@@ -1,5 +1,7 @@
 ### some useful shell scripts and settings
 
+TODO: needs to be updated (right now, it's better to check the source code)
+
 #### ubuntu
 
 check-internet.sh - ping while connection is not established, than show message
