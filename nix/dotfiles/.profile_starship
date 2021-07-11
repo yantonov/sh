@@ -1,0 +1,5 @@
+# https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+if starship -v command &> /dev/null
+then
+    eval "$(starship init bash)"
+fi
