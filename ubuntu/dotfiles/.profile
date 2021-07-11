@@ -21,16 +21,16 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-if [ -f "$HOME/.profile_colors" ]; then
-    . $HOME/.profile_colors
+if [ -f "$HOME/.config/shell_profile/.colors" ]; then
+    . $HOME/.config/shell_profile/.colors
 fi
 
-if [ -f "$HOME/.profile_path" ]; then
-    . $HOME/.profile_path
+if [ -f "$HOME/.config/shell_profile/.path" ]; then
+    . $HOME/.config/shell_profile/.path
 fi
 
-if [ -f "$HOME/.profile_alias_common" ]; then
-    . $HOME/.profile_alias_common
+if [ -f "$HOME/.config/shell_profile/.alias_common" ]; then
+    . $HOME/.config/shell_profile/.alias_common
 fi
 
 if [ -f "$HOME/.profile_alias_os" ]; then
@@ -41,8 +41,8 @@ if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
 fi
 
-if [ -f "$HOME/.profile_starship" ]; then
-    . $HOME/.profile_starship
+if [ -f "$HOME/.config/shell_profile/.starship" ]; then
+    . $HOME/.starship
 fi
 
 if [ -f "$HOME/.profile_custom" ]; then
