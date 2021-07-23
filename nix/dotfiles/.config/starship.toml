@@ -3,3 +3,6 @@ disabled = true
 
 [git_branch]
 symbol = ""
+
+[docker_context]
+disabled = true
