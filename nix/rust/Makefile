@@ -37,8 +37,8 @@ build:
 install:
 	@echo "Install..." \
 		mkdir -p "$(BIN_DIR)" && \
-		cd "$(SOURCE_DIR)/$(APP_NAME)" && \
+		cd "$(SOURCE_DIR)" && \
 		rm "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
-		cp "target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
-		cargo clean
+		cp "$(APP_NAME)/target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
+		rm -rf "$(APP_NAME)"
 	@echo "Installation is successfully completed!"
