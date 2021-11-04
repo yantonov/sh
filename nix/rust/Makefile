@@ -35,7 +35,10 @@ build:
 	@echo "Build is successfully completed!"
 
 install:
-	@echo "Install..."
-	mkdir -p "$(BIN_DIR)"
-	ln -s "$(SOURCE_DIR)/$(APP_NAME)/target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)"
+	@echo "Install..." \
+		mkdir -p "$(BIN_DIR)" && \
+		cd "$(SOURCE_DIR)/$(APP_NAME)" && \
+		rm "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
+		cp "target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
+		cargo clean
 	@echo "Installation is successfully completed!"
