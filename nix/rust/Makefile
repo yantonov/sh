@@ -24,7 +24,6 @@ build:
 	@echo "Build..." && \
 		mkdir -p "$(SOURCE_DIR)" && \
 		cd "$(SOURCE_DIR)" && \
-		pwd && \
 		if [ -d "$(APP_NAME)" ]; then \
 			echo "$(APP_NAME) directory is already exist inside $(SOURCE_DIR)"; \
 		exit 1; \
