@@ -2,7 +2,7 @@ help:
 	@cat Makefile
 
 BIN_DIR="$(HOME)/bin"
-SOURCE_DIR="$(HOME)/Development/bin"
+CLONE_DIR="$(HOME)/Development/bin"
 
 EXECUTABLE_NAME?="$(APP_NAME)"
 
@@ -22,10 +22,10 @@ build:
     # prerequisites for ubuntu
     # apt-get install libclang-dev
 	@echo "Build..." && \
-		mkdir -p "$(SOURCE_DIR)" && \
-		cd "$(SOURCE_DIR)" && \
+		mkdir -p "$(CLONE_DIR)" && \
+		cd "$(CLONE_DIR)" && \
 		if [ -d "$(APP_NAME)" ]; then \
-			echo "$(APP_NAME) directory is already exist inside $(SOURCE_DIR)"; \
+			echo "$(APP_NAME) directory is already exist inside $(CLONE_DIR)"; \
 		exit 1; \
 		fi && \
 		git clone "$(URL)" "$(APP_NAME)" && \
@@ -36,7 +36,7 @@ build:
 install:
 	@echo "Install..." \
 		mkdir -p "$(BIN_DIR)" && \
-		cd "$(SOURCE_DIR)" && \
+		cd "$(CLONE_DIR)" && \
 		rm "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
 		cp "$(APP_NAME)/target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
 		rm -rf "$(APP_NAME)"
