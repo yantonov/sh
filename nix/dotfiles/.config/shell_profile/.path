@@ -5,7 +5,6 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
-export DOCKER_HOME=/usr/local/bin
 export HOME_BIN=$HOME/bin
 
 # go lang
