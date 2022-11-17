@@ -22,8 +22,11 @@ VERSION="${LATEST_VERSION}"
 INSTALL_DIR="${HOME}/Development/bin"
 GO_DIR="go${VERSION}"
 GO_DIST_FILENAME="go${VERSION}.${OS}-${ARCH}.tar.gz"
-SYMLINK_DIR="${HOME}/bin"
-SYMLINK_PATH="${SYMLINK_DIR}/go"
+SYMLINK_HOME_DIR="${HOME}/bin"
+SYMLINK_HOME_PATH="${SYMLINK_HOME_DIR}/go"
+SYMLINK_DEV_DIR="${INSTALL_DIR}"
+SYMLINK_DEV_PATH="${SYMLINK_DEV_DIR}/go"
+
 
 if [ ! -d "${INSTALL_DIR}/${GO_DIR}" ];
 then
@@ -44,11 +47,22 @@ else
 fi
 
 cd "${INSTALL_DIR}"
-mkdir "${SYMLINK_DIR}"
-if [ -L "${SYMLINK_PATH}" ];
+mkdir "${SYMLINK_HOME_DIR}"
+if [ -L "${SYMLINK_HOME_PATH}" ];
 then
     echo "delete old symlink to go dist...";
-    rm -fv "${SYMLINK_PATH}"
+    rm -fv "${SYMLINK_HOME_PATH}"
 fi
 echo "create new symlink for go dist"
-ln -s "$(pwd)/go${VERSION}/bin" "${SYMLINK_PATH}"
+ln -s "$(pwd)/go${VERSION}/bin" "${SYMLINK_HOME_PATH}"
+
+mkdir "${SYMLINK_DEV_DIR}"
+if [ -L "${SYMLINK_DEV_PATH}" ];
+then
+    echo "delete old symlink to go dist...";
+    rm -fv "${SYMLINK_DEV_PATH}"
+fi
+echo "create new symlink for go dist"
+ln -s "$(pwd)/go${VERSION}" "${SYMLINK_DEV_PATH}"
+
+
