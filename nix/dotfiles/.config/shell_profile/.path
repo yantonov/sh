@@ -19,18 +19,23 @@ function add_to_path {
     fi
 }
 
-PATHS=($(find ${HOME_BIN} -maxdepth 1 | sort))
-for file in ${PATHS[@]}; do
-    if [ -L "$file" ]; then
-        real_path=$(readlink $file)
-        if test -e "$real_path"; then
-            if [ -d "$real_path" ]; then
-                add_to_path $real_path
+function add_home_bin_items_to_path {
+    PATHS=($(find ${HOME_BIN} -maxdepth 1 | sort))
+    for file in ${PATHS[@]}; do
+        if [ -L "$file" ]; then
+            real_path=$(readlink $file)
+            if test -e "$real_path"; then
+                if [ -d "$real_path" ]; then
+                    add_to_path $real_path
+                fi
+            fi
+        else
+            if [ -d "$file" ]; then
+                 add_to_path $file
             fi
         fi
-    else
-        if [ -d "$file" ]; then
-             add_to_path $file
-        fi
-    fi
-done
+    done
+}
+
+
+add_home_bin_items_to_path
