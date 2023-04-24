@@ -16,17 +16,19 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 if [ -f "$HOME/.config/shell_profile/.colors" ]; then
     . $HOME/.config/shell_profile/.colors
 fi
 
 if [ -f "$HOME/.config/shell_profile/.path" ]; then
     . $HOME/.config/shell_profile/.path
+fi
+
+add_to_path "$HOME/.cargo/bin"
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    add_to_path "$HOME/bin"
 fi
 
 if [ -f "$HOME/.config/shell_profile/.alias_common" ]; then
@@ -41,8 +43,8 @@ if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
 fi
 
-if [ -f "$HOME/.profile_env" ]; then
-    . $HOME/.profile_env
+if [ -f "$HOME/.profile_pyenv" ]; then
+    . $HOME/.profile_pyenv
 fi
 
 if [ -f "$HOME/.profile_starship" ]; then
@@ -52,5 +54,3 @@ fi
 if [ -f "$HOME/.profile_custom" ]; then
     . $HOME/.profile_custom
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
