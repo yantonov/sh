@@ -10,4 +10,4 @@ alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
 
 # path
-alias paths="echo $PATH | tr ':' '\n'"
+alias paths="echo \"$(echo $PATH | tr ':' '\n')\""
