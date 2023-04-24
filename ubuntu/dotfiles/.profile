@@ -35,16 +35,16 @@ if [ -f "$HOME/.config/shell_profile/.alias_common" ]; then
     . $HOME/.config/shell_profile/.alias_common
 fi
 
+if [ -f "$HOME/.config/shell_profile/.pyenv" ]; then
+    . $HOME/.config/shell_profile/.pyenv
+fi
+
 if [ -f "$HOME/.profile_alias_os" ]; then
     . $HOME/.profile_alias_os
 fi
 
 if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
-fi
-
-if [ -f "$HOME/.profile_pyenv" ]; then
-    . $HOME/.profile_pyenv
 fi
 
 if [ -f "$HOME/.profile_starship" ]; then
