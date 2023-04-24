@@ -24,13 +24,6 @@ if [ -f "$HOME/.config/shell_profile/.path" ]; then
     . $HOME/.config/shell_profile/.path
 fi
 
-add_to_path "$HOME/.cargo/bin"
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    add_to_path "$HOME/bin"
-fi
-
 if [ -f "$HOME/.config/shell_profile/.alias_common" ]; then
     . $HOME/.config/shell_profile/.alias_common
 fi
