@@ -11,6 +11,9 @@ export HOME_BIN=$HOME/bin
 export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
+# https://github.com/pyenv/pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+
 function add_to_path {
     tmp_path="$1"
     CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$tmp_path$" || echo "")"

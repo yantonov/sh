@@ -41,6 +41,10 @@ if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
 fi
 
+if [ -f "$HOME/.profile_env" ]; then
+    . $HOME/.profile_env
+fi
+
 if [ -f "$HOME/.profile_starship" ]; then
     . $HOME/.profile_starship
 fi
