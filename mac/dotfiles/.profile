@@ -3,7 +3,7 @@
 # OPAM configuration
 . /Users/yantonov/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-export PATH="$HOME/.cargo/bin:$PATH"
+add_to_path "$HOME/.cargo/bin"
 
 # python problem
 # ValueError: unknown locale: UTF-8
