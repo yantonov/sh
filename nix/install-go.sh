@@ -33,12 +33,16 @@ then
     echo "go lang ${VERSION} will be installed..."
 
     cd "${HOME}/Downloads"
+    echo "downloading..."
     curl -O "https://storage.googleapis.com/golang/${GO_DIST_FILENAME}"
-    tar -xzf "${GO_DIST_FILENAME}"
+    echo "extracting..."
+    tar -xvzf "${GO_DIST_FILENAME}"
     # delete existing dir
     TARGET="${INSTALL_DIR}/${GO_DIR}"
+    echo "removing old installation..."
     rm -rfv "${TARGET}"
     mkdir -p "${TARGET}"
+    echo "move new installation to the target directory..."
     mv go/* "${TARGET}"
     rmdir go
     rm "${GO_DIST_FILENAME}"
@@ -46,6 +50,7 @@ else
     echo "go ${VERSION} is already installed"
 fi
 
+echo "creating symbolic links..."
 cd "${INSTALL_DIR}"
 mkdir "${SYMLINK_HOME_DIR}"
 if [ -L "${SYMLINK_HOME_PATH}" ];
