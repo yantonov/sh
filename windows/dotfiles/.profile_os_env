@@ -1,1 +1,2 @@
-export MSYS=winsymlinks:nativestrict
+export MSYS=winsymlinks:nativestrict:enable_pcon
+
