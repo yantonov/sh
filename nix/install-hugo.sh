@@ -1,10 +1,10 @@
 #!/bin/sh
 
 LATEST_VERSION_PAGE="https://github.com/gohugoio/hugo/releases/latest"
-LATEST_VERSION=$(curl -s -L $LATEST_VERSION_PAGE | grep -E '.*hugo_[0-9.]+_Linux-64bit.tar.gz.*' | sed -E 's/.*hugo_([0-9.]+)_Linux-64bit.tar.gz.*/\1/' | head -n 1 || echo "")
+LATEST_VERSION=$(curl -s -L $LATEST_VERSION_PAGE | grep -E '.*/gohugoio/hugo/releases/tag/v[0-9.]+".*' | sed -E 's/.*\/gohugoio\/hugo\/releases\/tag\/v([0-9.]+)".*/\1/' | head -n 1 || echo "")
 
 if [ -z "${LATEST_VERSION}" ]; then
-    echo "cand detect latest version automarically from page ${LATEST_VERSION_PAGE}"
+    echo "cannot detect latest version automarically from page ${LATEST_VERSION_PAGE}"
     exit -1
 fi
 
@@ -26,10 +26,10 @@ mkdir -p "${HUGO_DIR}"
 PLATFORM=$(uname)
 case "${PLATFORM}" in
     "Darwin")
-        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_macOS-64bit.tar.gz"
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_macOS-64bit.tar.gz"
         ;;
     "Linux")
-        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz"
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz"
         ;;
     *)
         echo "invalid platform"
