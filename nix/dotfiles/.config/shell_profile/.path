@@ -8,7 +8,6 @@ export SVN_REPOS=$DEVELOPMENT_HOME/svn
 export HOME_BIN=$HOME/bin
 
 # go lang
-export GOROOT=$DEVELOPMENT_BIN/go
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
 function add_to_path {
