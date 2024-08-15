@@ -1,4 +1,3 @@
-
 # common
 export DEVELOPMENT_HOME=$HOME/Development
 export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
@@ -8,6 +7,7 @@ export SVN_REPOS=$DEVELOPMENT_HOME/svn
 export HOME_BIN=$HOME/bin
 
 # go lang
+export GOROOT=${HOME}/bin/go_root
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
 function add_to_path {
