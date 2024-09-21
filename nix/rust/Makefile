@@ -1,8 +1,8 @@
 help:
 	@cat Makefile
 
-BIN_DIR="$(HOME)/bin"
-CLONE_DIR="$(HOME)/Development/bin"
+BIN_DIR?="$(HOME)/bin"
+CLONE_DIR?="$(HOME)/Development/bin"
 
 EXECUTABLE_NAME?="$(APP_NAME)"
 
@@ -35,6 +35,7 @@ build:
 
 install:
 	@echo "Install..." \
+		echo "$(BIN_DIR)" && \
 		mkdir -p "$(BIN_DIR)" && \
 		cd "$(CLONE_DIR)" && \
 		rm "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
