@@ -52,3 +52,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+
+# Created by `pipx`
+export PATH="$PATH:/${HOME}/.local/bin"
