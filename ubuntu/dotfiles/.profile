@@ -44,6 +44,10 @@ if [ -f "$HOME/.profile_custom" ]; then
     . $HOME/.profile_custom
 fi
 
+if [ -f "$HOME/.profile_tokens" ]; then
+    . $HOME/.profile_tokens
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists

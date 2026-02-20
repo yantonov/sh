@@ -4,3 +4,6 @@
 # subrepositories
 /ubuntu/vpn/
 /ttl/
+
+# local info not under version control
+.profile_tokens
