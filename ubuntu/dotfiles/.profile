@@ -20,10 +20,6 @@ if [ -f "$HOME/.config/shell_profile/.alias_common" ]; then
     . $HOME/.config/shell_profile/.alias_common
 fi
 
-if [ -f "$HOME/.config/shell_profile/.pyenv" ]; then
-    . $HOME/.config/shell_profile/.pyenv
-fi
-
 if [ -f "$HOME/.profile_os_env" ]; then
     . $HOME/.profile_os_env
 fi
