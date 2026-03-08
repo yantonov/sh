@@ -32,10 +32,6 @@ if [ -f "$HOME/.profile_ssh" ]; then
     . $HOME/.profile_ssh
 fi
 
-if [ -f "$HOME/.profile_starship" ]; then
-    . $HOME/.profile_starship
-fi
-
 if [ -f "$HOME/.profile_custom" ]; then
     . $HOME/.profile_custom
 fi
