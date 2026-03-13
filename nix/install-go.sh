@@ -17,6 +17,8 @@ esac
 
 LATEST_VERSION=$(curl -s -L https://golang.org/dl/ | grep -E "go[0-9.]+.linux-amd64.tar.gz" | sed -E 's/.*go([0-9.]+)\.linux-amd64.tar.gz.*/\1/' | head -n 1)
 
+echo "LATEST VERSION=${LATEST_VERSION}"
+
 ARCH="amd64"
 VERSION="${LATEST_VERSION}"
 INSTALL_DIR="${HOME}/Development/bin"
@@ -34,7 +36,7 @@ then
 
     cd "${HOME}/Downloads"
     echo "downloading..."
-    curl -O "https://storage.googleapis.com/golang/${GO_DIST_FILENAME}"
+    curl -L -O "https://go.dev/dl/${GO_DIST_FILENAME}"
     echo "extracting..."
     tar -xvzf "${GO_DIST_FILENAME}"
     # delete existing dir
