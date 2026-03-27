@@ -9,5 +9,7 @@ alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
 
-# path
-alias paths="echo \"$(echo $PATH | tr ':' '\n')\""
+# show current PATHs
+function paths {
+  echo "$PATH" | tr ':' '\n' | nl
+}
