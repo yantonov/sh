@@ -1,6 +1,7 @@
 #!/bin/sh
 
 LATEST_VERSION_PAGE="https://github.com/gohugoio/hugo/releases/latest"
+
 LATEST_VERSION=$(
     curl -s -L "${LATEST_VERSION_PAGE}" \
     | grep -E '.*/gohugoio/hugo/releases/tag/v[0-9.]+".*' \
@@ -25,50 +26,32 @@ if [ -d "${TARGET_DIR}/${HUGO_DIR}" ]; then
     exit 1
 fi
 
+PLATFORM=$(uname)
+
+if [ "${PLATFORM}" != "Linux" ]; then
+    echo "unsupported platform: ${PLATFORM}"
+    exit 1
+fi
+
+DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz"
+TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
+EXECUTABLE_NAME="hugo"
+
 cd "${HOME}/Downloads" || exit 1
 
 mkdir -p "${HUGO_DIR}"
 
-PLATFORM=$(uname)
-
-case "${PLATFORM}" in
-    Darwin)
-        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_macOS-64bit.tar.gz"
-        TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
-        EXECUTABLE_NAME="hugo"
-        ;;
-    Linux)
-        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz"
-        TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
-        EXECUTABLE_NAME="hugo"
-        ;;
-    MINGW*|MSYS*|CYGWIN*)
-        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_windows-amd64.zip"
-        TARGET_DIST_FILENAME="hugo-${VERSION}.zip"
-        EXECUTABLE_NAME="hugo.exe"
-        ;;
-    *)
-        echo "unsupported platform: ${PLATFORM}"
-        exit 1
-        ;;
-esac
-
 echo "Downloading ${DIST_URL}"
 
-curl -L -o "${TARGET_DIST_FILENAME}" "${DIST_URL}"
+curl -fL -o "${TARGET_DIST_FILENAME}" "${DIST_URL}" || {
+    echo "download failed"
+    exit 1
+}
 
-case "${TARGET_DIST_FILENAME}" in
-    *.tar.gz)
-        tar xfv "${TARGET_DIST_FILENAME}" --directory "${HUGO_DIR}"
-        ;;
-    *.zip)
-        unzip -q "${TARGET_DIST_FILENAME}" -d "${HUGO_DIR}"
-        ;;
-    *)
-        echo "unsupported archive format"
-        exit 1
-        ;;
-esac
+tar xfv "${TARGET_DIST_FILENAME}" --directory "${HUGO_DIR}" || {
+    echo "failed to extract archive"
+    exit 1
+}
 
 mkdir -p "${TARGET_DIR}"
 mv "${HUGO_DIR}" "${TARGET_DIR}"
@@ -95,7 +78,7 @@ if [ -z "${VERSIONED_EXECUTABLE}" ]; then
     exit 1
 fi
 
-ln -sf "$(pwd)/$(basename "${VERSIONED_EXECUTABLE}")" "bin/hugo"
+ln -sf "$(pwd)/$(basename "${VERSIONED_EXECUTABLE}")" bin/hugo
 ln -sfn "$(pwd)" ../hugo
 
 mkdir -p "${HOME}/bin"
