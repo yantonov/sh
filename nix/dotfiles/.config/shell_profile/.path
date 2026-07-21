@@ -35,6 +35,3 @@ function add_home_bin_items_to_path {
         fi
     done
 }
-
-
-add_home_bin_items_to_path
