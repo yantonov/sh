@@ -9,3 +9,4 @@
 [[ -s "$HOME/.profile_custom" ]]                     && source "$HOME/.profile_custom"
 
 add_home_bin_items_to_path
+dedup_path
