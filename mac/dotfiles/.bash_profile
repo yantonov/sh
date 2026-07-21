@@ -7,3 +7,5 @@
 [[ -s "$HOME/.config/shell_profile/.alias_common" ]] && source "$HOME/.config/shell_profile/.alias_common"
 [[ -s "$HOME/.profile_alias_os" ]]                   && source "$HOME/.profile_alias_os"
 [[ -s "$HOME/.profile_custom" ]]                     && source "$HOME/.profile_custom"
+
+add_home_bin_items_to_path
