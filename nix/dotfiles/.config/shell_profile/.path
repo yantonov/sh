@@ -35,3 +35,32 @@ function add_home_bin_items_to_path {
         fi
     done
 }
+
+# keep only first occurence
+# why first, because first will be used actually based on the order
+dedup_path() {
+    old_IFS=$IFS
+    IFS=:
+    set -- $PATH
+    IFS=$old_IFS
+
+    new=
+
+    for dir do
+        case ":$new:" in
+            *":$dir:"*)
+                # already seen
+                ;;
+            *)
+                if [ -n "$new" ]; then
+                    new=$new:$dir
+                else
+                    new=$dir
+                fi
+                ;;
+        esac
+    done
+
+    PATH=$new
+    export PATH
+}
