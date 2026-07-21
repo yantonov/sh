@@ -13,3 +13,7 @@ alias devsh="cd $DEVELOPMENT_SH"
 function paths {
   echo "$PATH" | tr ':' '\n' | nl
 }
+
+function rawpaths {
+  echo "$PATH" | tr ':' '\n'
+}
