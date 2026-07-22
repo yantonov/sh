@@ -11,11 +11,8 @@ export GOROOT=${HOME}/bin/go_root
 export GOPATH=$DEVELOPMENT_BIN/gopath
 
 function add_to_path {
-    tmp_path="$1"
-    CHECK="$(echo $PATH | tr ':' '\n' | grep -E "^$tmp_path$" || echo "")"
-    if [ -z "${CHECK}" ]; then
-        export PATH="${tmp_path}:${PATH}"
-    fi
+    tmp_path="$1"    
+    export PATH="${tmp_path}:${PATH}"
 }
 
 function add_home_bin_items_to_path {
