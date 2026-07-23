@@ -61,3 +61,14 @@ dedup_path() {
     PATH=$new
     export PATH
 }
+
+
+# show current PATHs
+function paths {
+  echo "$PATH" | tr ':' '\n' | nl
+}
+
+# show list of PATH items without line enumeration
+function rawpaths {
+  echo "$PATH" | tr ':' '\n'
+}
