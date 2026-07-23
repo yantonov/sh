@@ -8,10 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-if [ -f "$HOME/.config/shell_profile/.colors" ]; then
-    . $HOME/.config/shell_profile/.colors
-fi
-
 if [ -f "$HOME/.config/shell_profile/.path" ]; then
     . $HOME/.config/shell_profile/.path
 fi
