@@ -6,7 +6,7 @@
 
 It's assumed that there is a fixed order to apply settings (create symlinks to config files):  
 1. common nix settings  
-2. os settings (mac/ubuntu/windows)  
+2. os settings (mac/linux/windows)  
 3. specific working environment settings  
 
 (1), (2) are stored in this repo  
