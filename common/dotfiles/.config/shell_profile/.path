@@ -4,7 +4,7 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 export SVN_REPOS=$DEVELOPMENT_HOME/svn
-export HOME_BIN=$HOME/bin
+export HOME_BIN=$HOME/.local/bin
 
 # go lang
 export GOROOT=${HOME}/bin/go_root
@@ -16,7 +16,8 @@ function add_to_path {
 }
 
 function add_home_bin_items_to_path {
-    PATHS=($(find ${HOME_BIN} -maxdepth 1 | sort))
+    mkdir -p "${HOME_BIN}"
+    PATHS=($(find "${HOME_BIN}" -maxdepth 1 | sort))
     for file in ${PATHS[@]}; do
         if [ -L "$file" ]; then
             real_path=$(readlink $file)
