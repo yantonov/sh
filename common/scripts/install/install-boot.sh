@@ -8,7 +8,7 @@ DEVELOPMENT_DIR="${HOME}/Development/bin"
 BOOT_DIST_URL="https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh"
 BOOT_EXECUTABLE="boot"
 TARGET_DIRECTORY="${DEVELOPMENT_DIR}/boot/bin"
-BIN_DIR="${HOME}/bin"
+BIN_DIR="${LOCAL_BIN:-${HOME}/.local/bin}"
 
 curl -L "${BOOT_DIST_URL}" -o "${BOOT_EXECUTABLE}"
 chmod +x "${BOOT_EXECUTABLE}"

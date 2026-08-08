@@ -18,7 +18,7 @@ KOTLIN_DIST_URL="https://github.com/JetBrains/kotlin/releases/download/v${VERSIO
 KOTLIN_EXTRACTED_DIR="kotlinc"
 KOTLIN_DESTINATION_DIR="kotlinc-${VERSION}"
 INSTALL_DIR=~/Development/bin
-BIN_DIR=~/bin
+BIN_DIR="${LOCAL_BIN:-${HOME}/.local/bin}"
 KOTLIN_SYMLINK_NAME="kotlinc"
 
 if [ -d "${INSTALL_DIR}/${KOTLIN_DESTINATION_DIR}" ];

@@ -3,6 +3,7 @@ export DEVELOPMENT_HOME=$HOME/Development
 export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export GIT_REPOS=$DEVELOPMENT_HOME/git
+export LOCAL_BIN=${HOME}/.local/bin
 
 add_to_path() {
     local_tmp_path="$1"

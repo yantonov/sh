@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-TARGET="${HOME}/bin/mill"
+TARGET="${LOCAL_BIN:-${HOME}/.local/bin}/mill"
 
 curl -L https://github.com/lihaoyi/mill/releases/download/0.8.0/0.8.0 \
      -o "${TARGET}"

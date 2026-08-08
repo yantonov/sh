@@ -81,7 +81,8 @@ fi
 ln -sf "$(pwd)/$(basename "${VERSIONED_EXECUTABLE}")" bin/hugo
 ln -sfn "$(pwd)" ../hugo
 
-mkdir -p "${HOME}/bin"
-ln -sfn "$(pwd)" "${HOME}/bin/hugo"
+LOCAL_BIN_DIR="${LOCAL_BIN:-${HOME}/.local/bin}"
+mkdir -p "${LOCAL_BIN_DIR}"
+ln -sfn "$(pwd)" "${LOCAL_BIN_DIR}/hugo"
 
 echo "hugo ${VERSION} has successfully installed :-)"

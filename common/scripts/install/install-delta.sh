@@ -24,7 +24,7 @@ case "${PLATFORM}" in
         ;;
 esac
 
-cd "${HOME}/bin"
+cd "${LOCAL_BIN:-${HOME}/.local/bin}"
 curl -L $URL -o $FILENAME
 "${UNPACK_COMMAND} $FILENAME"
 rm "${FILENAME}"
