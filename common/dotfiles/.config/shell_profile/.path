@@ -4,67 +4,74 @@ export DEVELOPMENT_BIN=$DEVELOPMENT_HOME/bin
 export DEVELOPMENT_SH=$DEVELOPMENT_HOME/sh
 export GIT_REPOS=$DEVELOPMENT_HOME/git
 
-function add_to_path {
-    tmp_path="$1"    
-    export PATH="${tmp_path}:${PATH}"
+add_to_path() {
+    local_tmp_path="$1"
+    export PATH="${local_tmp_path}:${PATH}"
+    unset local_tmp_path
 }
 
-function add_home_bin_items_to_path {
-    HOME_BIN="${HOME}/.local/bin"
-    mkdir -p "${HOME_BIN}"
-    PATHS=($(find "${HOME_BIN}" -maxdepth 1 | sort))
-    for file in ${PATHS[@]}; do
-        if [ -L "$file" ]; then
-            real_path=$(readlink $file)
-            if test -e "$real_path"; then
-                if [ -d "$real_path" ]; then
-                    add_to_path $real_path
-                fi
+add_home_bin_items_to_path() {
+    local_home_bin="${HOME}/.local/bin"
+    mkdir -p "${local_home_bin}"
+
+    local_old_ifs=$IFS
+    IFS='
+'
+    set -- $(find "${local_home_bin}" -maxdepth 1 | sort)
+    IFS=$local_old_ifs
+
+    for local_entry do
+        if [ -L "$local_entry" ]; then
+            local_real_path=$(readlink "$local_entry")
+            if [ -d "$local_real_path" ]; then
+                add_to_path "$local_real_path"
             fi
-        else
-            if [ -d "$file" ]; then
-                 add_to_path $file
-            fi
+        elif [ -d "$local_entry" ]; then
+            add_to_path "$local_entry"
         fi
     done
+
+    unset local_home_bin local_old_ifs local_entry local_real_path
 }
 
 # keep only first occurence
 # why first, because first will be used actually based on the order
 dedup_path() {
-    old_IFS=$IFS
+    local_old_ifs=$IFS
     IFS=:
     set -- $PATH
-    IFS=$old_IFS
+    IFS=$local_old_ifs
 
-    new=
+    local_new=
 
-    for dir do
-        case ":$new:" in
-            *":$dir:"*)
+    for local_dir do
+        case ":$local_new:" in
+            *":$local_dir:"*)
                 # already seen
                 ;;
             *)
-                if [ -n "$new" ]; then
-                    new=$new:$dir
+                if [ -n "$local_new" ]; then
+                    local_new=$local_new:$local_dir
                 else
-                    new=$dir
+                    local_new=$local_dir
                 fi
                 ;;
         esac
     done
 
-    PATH=$new
+    PATH=$local_new
     export PATH
+
+    unset local_old_ifs local_new local_dir
 }
 
 
 # show current PATHs
-function paths {
+paths() {
   echo "$PATH" | tr ':' '\n' | nl
 }
 
 # show list of PATH items without line enumeration
-function rawpaths {
+rawpaths() {
   echo "$PATH" | tr ':' '\n'
 }
