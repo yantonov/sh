@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # list of listening ports
 
