@@ -8,3 +8,4 @@ alias .....='cd ../../../..'
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
 alias devsh="cd $DEVELOPMENT_SH"
+alias mybin="cd $LOCAL_BIN"
