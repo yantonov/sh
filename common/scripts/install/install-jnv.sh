@@ -23,10 +23,11 @@ require_command() {
 }
 
 require_command curl
-require_command tar
 
 OS="$(uname -s)"
 ARCH="$(uname -m)"
+
+ARCHIVE_EXT="tar.xz"
 
 case "$OS" in
     Darwin)
@@ -60,12 +61,35 @@ case "$OS" in
         esac
         ;;
 
+    MINGW*|MSYS*|CYGWIN*|Windows_NT)
+        # Upstream only ships a 64-bit MSVC build, as a zip.
+        case "$ARCH" in
+            x86_64|amd64)
+                TARGET="x86_64-pc-windows-msvc"
+                ;;
+            *)
+                die "Unsupported Windows architecture: $ARCH"
+                ;;
+        esac
+        ARCHIVE_EXT="zip"
+        BIN_NAME="jnv.exe"
+        ;;
+
     *)
         die "Unsupported operating system: $OS"
         ;;
 esac
 
-ASSET="jnv-${TARGET}.tar.xz"
+case "$ARCHIVE_EXT" in
+    tar.xz)
+        require_command tar
+        ;;
+    zip)
+        require_command unzip
+        ;;
+esac
+
+ASSET="jnv-${TARGET}.${ARCHIVE_EXT}"
 URL="https://github.com/${REPO}/releases/latest/download/${ASSET}"
 
 TMP_DIR="$(mktemp -d)"
@@ -89,12 +113,20 @@ curl \
 
 log "Extracting..."
 
-tar -xJf "$ARCHIVE" -C "$TMP_DIR"
-
-BINARY="$(find "$TMP_DIR" -type f -name "$BIN_NAME" -perm -u+x -print -quit)"
+case "$ARCHIVE_EXT" in
+    tar.xz)
+        tar -xJf "$ARCHIVE" -C "$TMP_DIR"
+        BINARY="$(find "$TMP_DIR" -type f -name "$BIN_NAME" -perm -u+x -print -quit)"
+        ;;
+    zip)
+        unzip -q -o "$ARCHIVE" -d "$TMP_DIR"
+        # The executable bit is not meaningful inside a Windows zip.
+        BINARY="$(find "$TMP_DIR" -type f -name "$BIN_NAME" -print -quit)"
+        ;;
+esac
 
 if [ -z "$BINARY" ]; then
-    die "jnv binary was not found in the downloaded archive"
+    die "${BIN_NAME} was not found in the downloaded archive"
 fi
 
 mkdir -p "$INSTALL_DIR"
