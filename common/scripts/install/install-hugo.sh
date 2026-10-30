@@ -28,14 +28,22 @@ fi
 
 PLATFORM=$(uname)
 
-if [ "${PLATFORM}" != "Linux" ]; then
-    echo "unsupported platform: ${PLATFORM}"
-    exit 1
-fi
-
-DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz"
-TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
-EXECUTABLE_NAME="hugo"
+case "${PLATFORM}" in
+    Linux)
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz"
+        TARGET_DIST_FILENAME="hugo-${VERSION}.tar.gz"
+        EXECUTABLE_NAME="hugo"
+        ;;
+    MINGW*)
+        DIST_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_windows-amd64.zip"
+        TARGET_DIST_FILENAME="hugo-${VERSION}.zip"
+        EXECUTABLE_NAME="hugo.exe"
+        ;;
+    *)
+        echo "unsupported platform: ${PLATFORM}"
+        exit 1
+        ;;
+esac
 
 cd "${HOME}/Downloads" || exit 1
 
@@ -48,10 +56,20 @@ curl -fL -o "${TARGET_DIST_FILENAME}" "${DIST_URL}" || {
     exit 1
 }
 
-tar xfv "${TARGET_DIST_FILENAME}" --directory "${HUGO_DIR}" || {
-    echo "failed to extract archive"
-    exit 1
-}
+case "${PLATFORM}" in
+    Linux)
+        tar xfv "${TARGET_DIST_FILENAME}" --directory "${HUGO_DIR}" || {
+            echo "failed to extract archive"
+            exit 1
+        }
+        ;;
+    MINGW*)
+        unzip -d "${HUGO_DIR}" "${TARGET_DIST_FILENAME}" || {
+            echo "failed to extract archive"
+            exit 1
+        }
+        ;;
+esac
 
 mkdir -p "${TARGET_DIR}"
 mv "${HUGO_DIR}" "${TARGET_DIR}"
