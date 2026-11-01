@@ -1,10 +1,10 @@
 help:
 	@cat Makefile
 
-BIN_DIR?="$(HOME)/bin"
-CLONE_DIR?="$(HOME)/Development/bin"
+BIN_DIR?=$(HOME)/.local/bin
+CLONE_DIR?=$(HOME)/Development/bin
 
-EXECUTABLE_NAME?="$(APP_NAME)"
+EXECUTABLE_NAME?=$(APP_NAME)
 
 build:
 	if [ -z "$(APP_NAME)" ]; then \
@@ -23,22 +23,20 @@ build:
     # apt-get install libclang-dev
 	@echo "Build..." && \
 		mkdir -p "$(CLONE_DIR)" && \
-		cd "$(CLONE_DIR)" && \
-		if [ -d "$(APP_NAME)" ]; then \
-			echo "$(APP_NAME) directory is already exist inside $(CLONE_DIR)"; \
-		exit 1; \
+		if [ -d "$(CLONE_DIR)/$(APP_NAME)/.git" ]; then \
+			cd "$(CLONE_DIR)/$(APP_NAME)" && ( git pull --ff-only || ( cd .. && rm -rf "$(APP_NAME)" && git clone "$(URL)" "$(APP_NAME)" && cd "$(APP_NAME)" ) ); \
+		else \
+			rm -rf "$(CLONE_DIR)/$(APP_NAME)" && \
+			git clone "$(URL)" "$(CLONE_DIR)/$(APP_NAME)" && \
+			cd "$(CLONE_DIR)/$(APP_NAME)"; \
 		fi && \
-		git clone "$(URL)" "$(APP_NAME)" && \
-		cd "$(APP_NAME)" && \
 		cargo build --release
 	@echo "Build is successfully completed!"
 
 install:
-	@echo "Install..." \
-		echo "$(BIN_DIR)" && \
+	@echo "Install to $(BIN_DIR)..." && \
 		mkdir -p "$(BIN_DIR)" && \
 		cd "$(CLONE_DIR)" && \
-		rm "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
-		cp "$(APP_NAME)/target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
-		rm -rf "$(APP_NAME)"
+		rm -f "$(BIN_DIR)/$(EXECUTABLE_NAME)" && \
+		cp "$(APP_NAME)/target/release/$(EXECUTABLE_NAME)" "$(BIN_DIR)/$(EXECUTABLE_NAME)"
 	@echo "Installation is successfully completed!"
