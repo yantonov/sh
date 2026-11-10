@@ -4,6 +4,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# dangling symlinks in the current directory, no recursion
+# find -xtype is GNU-only, so use the POSIX form
+alias find-dangling-links='find . -maxdepth 1 -type l ! -exec test -e {} \; -print'
+
 # [ development ]
 alias gitrepos="cd $GIT_REPOS"
 alias devbin="cd $DEVELOPMENT_BIN"
